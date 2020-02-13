@@ -50,7 +50,7 @@ progress {
 }
 progress::-webkit-progress-value {
     background-image:
-    -webkit-linear-gradient(-45deg,transparent 32%, rgb(216, 168, 34) 33%, rgb(236, 104, 16) 70%);
+    -webkit-linear-gradient(-45deg,transparent 32%, rgb(216, 168, 34) 33%, rgb(236, 104, 16) 70%, rgb(216, 92, 34) 33%, rgba(252, 8, 8, 0.795));
 }
 .wirefram-4 {
     width: 100%;
