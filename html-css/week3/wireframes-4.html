@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wireframes</title>
     <link rel="stylesheet" href="wireframes-4.css">
-    <link rel="stylesheet" href="@media-wireframes.css">
 </head>
 <body>
     <header>
@@ -20,17 +19,15 @@
         <h1>Sign up to yourcustomtailor.com</h1>
         <p>We can’t wait to help you improve your life-style and gain the attention from people around you!</p>
         <p>Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details about your first...</p>
-        <h2>Step 2/4 - tell us who you are?</h2>
     </div>     
-    <div>
+    <div class="progress-bar">
+        <h2>Step 2/4 - tell us who you are?</h2>
         <h3>Progress</h3>
         <div class="progress-bar">
             <progress max="4" value="4.0">
-                <div pseudo="-webkit-inner-element">
-                    <div pseudo="-webkit-progress-bar">
-                       <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
-                    </div>
-                </div>
+                <div pseudo="-webkit-inner-element"></div>
+                <div pseudo="-webkit-progress-bar"></div>
+                <div pseudo="-webkit-progress-value" style="width: 80%;"></div>  
             </progress>
         </div>
     </div>
@@ -45,7 +42,7 @@
             <select name="card-type" id="card-type" required>
                 <option value="">Credit/Debit</option>
                 <option value="visa">visa</option>
-                <option value="dansk-card">Dansk card</option>
+                <option value="dansk-card">Danske Bank</option>
             </select>
         </div>
     <div class="credit-card-number">
@@ -66,7 +63,7 @@
     </div>
     </form>
     <div class="next-button">
-        <button formaction="wireframes-3.html"><span>&laquo;</span>Previous</button>
+        <button><a href="wireframes-3.html"><span>&laquo;</span>Previous</a></button>
         <input type="submit" class="button" value="Submit">
 </div> 
 </body>

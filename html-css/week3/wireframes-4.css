@@ -35,13 +35,12 @@ height: 5rem;
 text-align: center;
 padding-top: 2rem;
 }
-.navigation a {
-    text-decoration: none;
-    font-size: 0.7rem;
-}
 .info-section {
     width: 70%;
-    padding-top: 3rem;
+    padding: 20px 0px 20px 20px;
+}
+h2,h3 {
+    line-height: 2rem;
 }
 progress {
     width: 90%;
@@ -61,6 +60,10 @@ progress::-webkit-progress-value {
     display: flex;
     flex-direction: column;
 }
+select[name="card-type"] {
+    zoom: 1.3;
+    border: 0.5;
+}
 input {
     width: 20%;
     height: 30px;
@@ -70,7 +73,7 @@ input {
 margin: 20px;
 }
 .expiry input {
-width: 60px;
+width: 100px;
 height: 30px;
 }
 label {
@@ -85,11 +88,13 @@ label {
     justify-content: space-between;
 }
 button {
-background-color: rgb(202, 202, 202);
-border: gray solid;
-width: 5rem;
-height: 2rem;
-text-align: center;
+    background-color: rgb(202, 202, 202);
+    border: gray solid;
+    margin: 20px 5px 20px 20px;
+    float: right;
+    width: 8rem;
+    height: 3rem;
+    text-align: center;
 }
 button span {
     color: rgb(55, 107, 2);
@@ -100,5 +105,34 @@ button:hover {
 }
 .button {
     width: 10rem;
+    height: 3rem;
     background-color: darkorange;
+}
+@media only screen and (min-width: 300px) and (max-width: 750px) {
+    body {
+border-style: double;
+font-size: 12px; 
+  }
+.info-section {
+    width: fit-content;
+}
+input {
+    width: 30%;
+}
+select[name="card-type"] {
+    zoom: 1;
+    border: 0.5;
+    margin-left: 10px;
+}
+input {
+    width: 50%;
+    height: 30px;
+}
+label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+button {
+    margin: 0px;
+}
 }

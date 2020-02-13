@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wireframes</title>
     <link rel="stylesheet" href="wireframes-2.css">
-    <link rel="stylesheet" href="@media-wireframes.css">
 </head>
 <body>
     <header>
@@ -16,58 +15,53 @@
               <a href="#">Navigation</a>
         </div>
     </header>
-
     <div class="info-section">
         <h1>Sign up to yourcustomtailor.com</h1>
         <p>We can’t wait to help you improve your life-style and gain the attention from people around you!</p>
         <p>Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details about your first...</p>
-        <h2>Step 2/4 - tell us who you are?</h2>
     </div>
         
     <div>
+        <h2>Step 2/4 - tell us who you are?</h2>
         <h3>Progress</h3>
         <div class="progress-bar">
             <progress max="4" value="2.3">
-                <div pseudo="-webkit-inner-element">
-                    <div pseudo="-webkit-progress-bar">
-                       <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
-                    </div>
-                </div>
+                <div pseudo="-webkit-inner-element"></div>
+                <div pseudo="-webkit-progress-bar"></div>
+                <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
             </progress>
-        <p>We will probably need to stay in touch somehow. Let is know how we can reach you?</p>
     </div>
-    </div>
-
 <form class="wireform-2">
-        <div>
-            <label for="email">Email*</label>
-            <input type="email" id="email" placeholder="" required>
-            <label for="phone">Phone</label>
-            <input type="number" id="phone" min="9" max="9" placeholder="">
-        </div>
+    <p>We will probably need to stay in touch somehow. Let is know how we can reach you?</p>
+    <div class="email-address">
+        <label for="email">Email*</label>
+        <input type="email" id="email" placeholder="" required>
+        <label for="phone">Phone</label>
+        <input type="number" id="phone" min="9" max="9" placeholder="">
+    </div>
 
-        <div class="psw">
-            <label for="password-1">password*</label>
-            <input type="password" id="password-1" name="password" pattern="/^*[a-zA-Z]{10}$/" title="Password can be any words, numbers no more than 16 digit" placeholder="" required>
-        </div>
-        <div class="psw">
-            <label for="password-2">Re-enter Password*</label>
-            <input type="password" id="password-2" name="password" pattern="/^*[a-zA-Z]{10}$/" placeholder="" required>
-        </div>
+    <div class="psw">
+        <label for="password-1">password*</label>
+        <input type="password" id="password-1" name="password" pattern="/^*[a-zA-Z]{10}$/" title="Password can be any words, numbers no more than 16 digit" placeholder="" required>
+    </div>
+    <div class="psw">
+        <label for="password-2">Re-enter Password*</label>
+        <input type="password" id="password-2" name="password" pattern="/^*[a-zA-Z]{10}$/" placeholder="" required>
+    </div>
 
-        <div class="news-subs">
-            <p>I want to sign up for the newsletter</p>
-            <label for="weekly">Weekly news</label>
-            <input type="radio" id="weekly" name="news" checked>
-            <label for="monthly">Monthly news</label>
-            <input type="radio" id="monthly" name="news">
-            <label for="don'tsend">Don't send me news</label>
-            <input type="radio" id="don'tsend" name="news">
-        </div>
-        <div class="next-button">
-            <button formaction="wireframes-2.html"><span>&laquo;</span>Previous</button>
-            <button formaction="wireframes-3.html">Next Step <span>&raquo;</span></button>
-        </div> 
+    <div class="news-subs">
+        <p>I want to sign up for the newsletter</p>
+        <label for="weekly">Weekly news</label>
+        <input type="radio" id="weekly" name="news" checked>
+        <label for="monthly">Monthly news</label>
+        <input type="radio" id="monthly" name="news">
+        <label for="don'tsend">Don't send me news</label>
+        <input type="radio" id="don'tsend" name="news">
+    </div>
+    <div class="next-button">
+        <button><a href="wireframes-2.html"><span>&laquo;</span>Previous</a></button>
+        <button><a href="wireframes-3.html">Next Step <span>&raquo;</span></a></button>
+    </div> 
 </form>
 </body>
 </html>

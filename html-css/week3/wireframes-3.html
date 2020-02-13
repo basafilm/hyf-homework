@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wireframes</title>
     <link rel="stylesheet" href="wireframes-3.css">
-    <link rel="stylesheet" href="@media-wireframes.css">
-
 </head>
 <body>
     <header>
@@ -22,18 +20,16 @@
         <h1>Sign up to yourcustomtailor.com</h1>
         <p>We can’t wait to help you improve your life-style and gain the attention from people around you!</p>
         <p>Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details about your first...</p>
-        <h2>Step 2/4 - tell us who you are?</h2>
     </div>
         
-    <div>
+    <div class="progress-bar">
+        <h2>Step 2/4 - tell us who you are?</h2>
         <h3>Progress</h3>
         <div class="progress-bar">
             <progress max="4" value="3.4">
-                <div pseudo="-webkit-inner-element">
-                    <div pseudo="-webkit-progress-bar">
-                       <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
-                    </div>
-                </div>
+                <div pseudo="-webkit-inner-element"></div>
+                <div pseudo="-webkit-progress-bar"></div>
+                <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
             </progress>
         </div>
     </div>
@@ -47,7 +43,7 @@
             </li>
             <li>
                 <label for="accessories">Accessories</label>
-                <input type="checkbox" id="accessories" aria-checked="true" checked>
+                <input type="checkbox" id="accessories" aria-checked="true">
             </li>
             <li>
                 <label for="handbags">Handbags</label>
@@ -57,11 +53,11 @@
         <ul class="rows">
             <li>
                 <label for="jewelry">Jewelry</label>
-                <input type="checkbox" id="jewelry" aria-checked="true" checked>
+                <input type="checkbox" id="jewelry" aria-checked="true">
             </li>
             <li>
                 <label for="shoes">Shoes</label>
-                <input type="checkbox" id="shoes" aria-checked="true" checked>
+                <input type="checkbox" id="shoes" aria-checked="true">
             </li>
         </ul>
     </div>
@@ -79,11 +75,11 @@
             <tr>
                 <td> 
                     <label for="select-1">Select</label>
-                    <input type="checkbox" id="select-1" aria-checked="true" checked>
+                    <input type="checkbox" id="select-1" aria-checked="true">
                 </td>
                 <td>
                     <label for="select-2">Select</label>
-                    <input type="checkbox" id="select-2" aria-checked="true" checked>
+                    <input type="checkbox" id="select-2" aria-checked="true">
                 </td>
                 <td>
                     <label for="select-3">Select</label>
@@ -104,11 +100,11 @@
             <tr>
                 <td> 
                     <label for="select-5">Select</label>
-                    <input type="checkbox" id="select-5" aria-checked="true" checked>
+                    <input type="checkbox" id="select-5" aria-checked="true">
                 </td>
                 <td>
                     <label for="select-6">Select</label>
-                    <input type="checkbox" id="select-6" aria-checked="true" checked>
+                    <input type="checkbox" id="select-6" aria-checked="true">
                 </td>
                 <td>
                     <label for="select-7">Select</label>
@@ -123,8 +119,8 @@
     </table>
 </section>
 <div class="next-button">
-    <button formaction="wireframes-2.html"><span>&laquo;</span>Previous</button>
-    <button formaction="wireframes-4.html">Next Step <span>&raquo;</span></button>
+    <button><a href="wireframes-3.html"><span>&laquo;</span>Previous</a></button>
+    <button><a href="wireframes-4.html">Next Step <span>&raquo;</span></a></button>
 </div> 
 </form>
 </body>
