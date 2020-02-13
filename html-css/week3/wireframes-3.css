@@ -128,20 +128,32 @@ button:hover {
 }
 
 @media only screen and (min-width: 300px) and (max-width: 750px) {
-    body {
+body {
 border-style: double;
 font-size: 12px; 
-  }
+margin: 0;
+padding: 0;
+}
 .info-section {
     width: fit-content;
+    padding: 20px;
+}
+.progress-bar {
+    padding-left: 15px;
+}
+.wirefram-3 {
+    width: 90%;
+    margin: auto;
+}
+.img-container {
+    width: 90%;
+    margin: auto;
+    padding-left: 20px;
 }
 label {
 float: left;
 font-size: 0.8rem;
 display: flex;
 flex-direction: column;
-}
-button {
-    margin: 0px;
 }
 }

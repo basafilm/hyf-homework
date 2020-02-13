@@ -100,7 +100,6 @@ select[name="country"] {
 }
 .profile-info div:nth-child(1) {
     width: 30%;
-    position: static;
 }
 .profile-info textarea {
     width: 800px;
@@ -140,12 +139,18 @@ button:hover {
     transform:scale(2);
 }
 @media only screen and (min-width: 300px) and (max-width: 750px) {
-    body {
-border-style: double;
-font-size: 12px; 
+body {
+   border-style: double;
+   font-size: 12px; 
+   margin: 0;
+   padding: 0;
   }
 .info-section {
     width: fit-content;
+    padding: 20px;
+}
+.progress-section {
+    margin-left: 20px;
 }
 .personal-info input {
     width: 100%;
@@ -157,12 +162,20 @@ font-size: 12px;
     text-align: left;
     padding: 0px;
 }
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+.profile-info div:nth-child(1) {
+    width: 100%;
+}
 label {
 float: left;
 }
 .profile-info textarea {
-    width: 100%;
+    width: 400px;
     height: 10rem;
+
 }
 button {
     margin: 0px;
