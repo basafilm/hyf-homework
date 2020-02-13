@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wireframes</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="@media-wireframes.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/Malek-design-logo.png" alt="malek design logo">
+        </div>
+        <div class="navigation">
+              <a href="#">Navigation</a>
+        </div>
+    </header>
+
+    <div class="info-section">
+        <h1>Sign up to yourcustomtailor.com</h1>
+        <p>We can’t wait to help you improve your life-style and gain the attention from people around you!</p>
+        <p>Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details about your first...</p>
+        <h2>Step 1/4 - tell us who you are?</h2>
+    </div>
+        
+    <div>
+        <h3>Progress</h3>
+        <div class="progress-bar">
+            <progress max="4" value="1.2">
+                <div pseudo="-webkit-inner-element">
+                    <div pseudo="-webkit-progress-bar">
+                       <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
+                    </div>
+                </div>
+            </progress>
+        </div>
+        <p>Nice to meet you. Let’s spend a minute to get to know each other? Please enter the following:</p>
+    </div>
+
+
+<form class="wireform">
+    <section class="container">
+        <div class="personal-info">
+            <div>
+                <label for="frs-name">First name*</label>
+                <input type="text" id="frs-name" placeholder="" required>
+                <label for="sec-name">Last name*</label>
+                <input type="text" id="sec-name" placeholder="" required>
+            </div>
+            <div class="country">
+                <label for="country">Countryt*</label>
+                <select type="country" name="country" id="country" placeholder="country..." required>
+                    <option value="cuntry">country...</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Denmark">Denmark</option>
+                </select>
+            </div>
+            <div>
+                <label for="street-address">Street address*</label>
+                <input type="text" id="frs-name" placeholder="" required>
+                <label for="post-code">Post code*</label>
+                <input type="text" id="post-code" pattern="[a-z1-9]{4}" title="Please enter four digit number or words" placeholder="" required>
+            </div>
+        </div>
+
+        <div class="quide">
+            <div>
+                <label for="text-area">Profile description*</label>
+                <p>Please provide a short description of yourself to be displayed on our social community pages.</p>
+            </div>
+            <div>
+                <textarea class="text-area" maxlength="500"></textarea>
+                <p>Use the same address for billing and shipping? Uncheck below to fill out a separate shipping address.</p>
+            </div>
+        </div>
+    </section>
+        <div class="ship-add">
+            <div>
+                <label for="shipping-add">Shipping address</label>
+                <input type="checkbox" class="check-box" id="shipping-add" checked>
+            </div>
+            <div>
+                <button><a href=wireframes-2.html></a>Next Step <span>&raquo;</span></a></button>
+            </div>
+</form>
+
+</body>
+</html>

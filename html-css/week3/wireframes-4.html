@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wireframes</title>
+    <link rel="stylesheet" href="wireframes-4.css">
+    <link rel="stylesheet" href="@media-wireframes.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/Malek-design-logo.png" alt="malek design logo">
+        </div>
+        <div class="navigation">
+              <a href="#">Navigation</a>
+        </div>
+    </header>
+
+    <div class="info-section">
+        <h1>Sign up to yourcustomtailor.com</h1>
+        <p>We can’t wait to help you improve your life-style and gain the attention from people around you!</p>
+        <p>Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details about your first...</p>
+        <h2>Step 2/4 - tell us who you are?</h2>
+    </div>
+        
+    <div>
+        <h3>Progress</h3>
+        <div class="progress-bar">
+            <progress max="4" value="4.4">
+                <div pseudo="-webkit-inner-element">
+                    <div pseudo="-webkit-progress-bar">
+                       <div pseudo="-webkit-progress-value" style="width: 80%;"></div> 
+                    </div>
+                </div>
+            </progress>
+        </div>
+    </div>
+
+    <form action="#" class="wirefram-4">
+        <p>Please fill in your payment data?</p>
+        <div>
+           <label for="name-card">Name on card</label>
+           <input type="text" id="name-card" placeholder="" required>
+        </div>
+        <div>
+            <label for="card-type">Card type</label>
+            <select name="card-type" id="card-type" required>
+                <option value="Credit-Debit">Credit/Debit</option>
+                <option value="visa">visa</option>
+                <option value="dansk-card">Dansk card</option>
+            </select>
+        </div>
+    <div class="credit-card-number">
+        <label for="card-number">Credit card number</label>
+        <input type="text" id="card-number" min="16" max="16" placeholder="Your 16 didgit card number" required>
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="" required>
+    </div>
+
+    <div class="expiry">
+        <label for="expiry-month">Expiry month</label>
+        <input type="text" id="expiry-month" pattern="[1-9]{2}" placeholder="" required>
+        <label for="expiry-year">Expiry year</label>
+        <input type="text" id="expiry-year" pattern="[1-9]{2}" placeholder="" required>
+    </div>
+    <div class="expiry">
+        <label for="ccv">CCV</label>
+        <input type="text" id="ccv" placeholder="3 digit" required>
+    </div>
+        </div>
+    </form>
+
+
+
+    <div class="next-button">
+        <button><a href=wireframes-3.html><span>&laquo;</span>Previous</a></button>
+        <input type="submit" class="button" value="Submit">
+    </div> 
+</body>
