@@ -127,11 +127,20 @@ button:hover {
 }
 @media only screen and (min-width: 300px) and (max-width: 750px) {
  body {
-    border-style: double;
-    font-size: 12px; 
+    font-size: 16px; 
     margin: 0;
     padding: 0;
     }
+header div:nth-child(2) {
+        padding: 0;
+        position: relative;
+        margin-top: 20px;
+    }
+.navigation {
+      background-color: rgb(202, 202, 202);
+      width: 8rem;
+      height: 2rem;
+      }
 .info-section {
     width: fit-content;
     padding: 20px;
@@ -139,29 +148,53 @@ button:hover {
 .progress-section {
     padding-left: 15px;
 }
-label {
+.wireform-2 {
+    width: 90%;
+    margin: auto;
+}
+.email-address {
+    display: flex;
+    flex-direction: column;
+}
+.email-address input {
+    width: 90%;
+}
+.email-address label {
 float: left;
 font-size: 0.8rem;
 display: flex;
 flex-direction: column;
 }
 .psw {
-    width: 100%;
+    width: 90%;
+}
+.psw input {
+    width: 60%;
+}
+.psw label {
+float: left;
+font-size: 0.8rem;
+display: flex;
+flex-direction: column;
 }
 .news-subs {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    margin-left: 20px;
+    line-height: 0;
+}
+.news-subs label {
+    font-size: 0.8rem;
+}
+.news-subs input {
+    width: 1.5rem;
+    margin-top: 10px;
 }
 button {
     margin: 0px;
 }
-.news-subs input {
-width: 2rem;
-}
 input[type="radio"] {
-    vertical-align:middle;
     zoom: 1;
+}
+button:hover {
+    transform:scale(1);
 }
 }

@@ -109,20 +109,31 @@ button:hover {
     background-color: darkorange;
 }
 @media only screen and (min-width: 300px) and (max-width: 750px) {
-    body {
-        border-style: double;
-        font-size: 12px; 
-        margin: 0;
-        padding: 0;
-       }
+body {
+    font-size: 12px; 
+    margin: 0;
+    padding: 0;
+}
+header div:nth-child(2) {
+    padding: 0;
+    position: relative;
+    margin-top: 20px;
+}
+.navigation {
+    background-color: rgb(202, 202, 202);
+    width: 8rem;
+    height: 2rem;
+}
 .info-section {
     width: fit-content;
 }
 .progress-bar {
     padding: 10px;
 }
-input {
-    width: 30%;
+.wirefram-4 {
+    width: 90%;
+    margin: auto;
+    font-size: 1rem;
 }
 select[name="card-type"] {
     zoom: 1;
@@ -130,16 +141,11 @@ select[name="card-type"] {
     margin: auto;
 }
 .credit-card-number {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
+    width: 100%;
     margin: auto;
-    line-height: 5px;
 }
 .expiry {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
+    width: 100%;
     margin: auto;
     padding: 0;
 }
@@ -148,10 +154,12 @@ input {
     height: 30px;
 }
 label {
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.8rem;
 }
 button {
     margin: 0px;
+}
+button:hover {
+    transform:scale(1);
 }
 }

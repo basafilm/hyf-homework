@@ -140,11 +140,20 @@ button:hover {
 }
 @media only screen and (min-width: 300px) and (max-width: 750px) {
 body {
-   border-style: double;
-   font-size: 12px; 
+   font-size: 16px; 
    margin: 0;
    padding: 0;
   }
+header div:nth-child(2) {
+      padding: 0;
+      position: relative;
+      margin-top: 20px;
+  }
+.navigation {
+    background-color: rgb(202, 202, 202);
+    width: 8rem;
+    height: 2rem;
+    }
 .info-section {
     width: fit-content;
     padding: 20px;
@@ -162,6 +171,11 @@ body {
     text-align: left;
     padding: 0px;
 }
+.profile-info-text {
+    display: flex;
+    flex-direction: column;
+}
+
 .profile-info {
     display: flex;
     flex-direction: column;
@@ -173,11 +187,14 @@ label {
 float: left;
 }
 .profile-info textarea {
-    width: 400px;
-    height: 10rem;
+    width: 350px;
+    height: 6rem;
 
 }
 button {
     margin: 0px;
+}
+button:hover {
+    transform:scale(1);
 }
 }
