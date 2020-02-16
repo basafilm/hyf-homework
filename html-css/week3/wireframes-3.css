@@ -118,6 +118,8 @@ button {
     width: 8rem;
     height: 3rem;
     text-align: center;
+    border-radius: 5px;
+    border-color: rgb(233, 168, 5);
 }
 button span {
     color: rgb(55, 107, 2);

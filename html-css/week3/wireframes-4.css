@@ -95,6 +95,8 @@ button {
     width: 8rem;
     height: 3rem;
     text-align: center;
+    border-radius: 5px;
+    border-color: rgb(233, 168, 5);
 }
 button span {
     color: rgb(55, 107, 2);
@@ -107,6 +109,10 @@ button:hover {
     width: 10rem;
     height: 3rem;
     background-color: darkorange;
+}
+input[type="submit"] {
+    border-radius: 5px;
+    border-color: rgb(233, 168, 5);
 }
 @media only screen and (min-width: 300px) and (max-width: 750px) {
 body {
