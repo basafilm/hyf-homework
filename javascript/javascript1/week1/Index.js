@@ -1,9 +1,10 @@
+//Age-ify (A future age calculator)
 let yearOfBirth = 1974;
 let yearFuture = 2050;
 age = yearFuture - yearOfBirth;
 console.log('My age in:' +' ' +yearFuture +' ' +'will be:' +age +' ' + 'year old.');
 
-
+ // Goodboy-Oldboy (A dog age calculator)
 const dogYearOfBirth =2017;
 const dogYearFuture =2027;
 let dogYear = 7;
@@ -18,6 +19,7 @@ dogAge = dogYearFuture -dogYearOfBirth;
 console.log('Your dog will be' +' ' +dogAge +' ' +'human years old in' +' ' +dogYearFuture +'.');
 
 var houseyPricey;
+//Housey pricey (A house price estimator)
 volumeInMeters=[['peter', 8 , 10, 10],['julie', 5, 11, 8]];
 gardenSizeInM2 =[[100],[70]];
 peterBuy =true;
