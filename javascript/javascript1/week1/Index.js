@@ -43,4 +43,5 @@ else(julieBuy)
     housePrice = volumeInMeters[1][1] * 2.5 * 1000 + gardenSizeInM2[1][0] *300;
     console.log('Julie\'s house price should be:' +' ' +housePrice +' ' +'It is'+' ' +[houseCost -housePrice] +' ' +'higher than the market prices.');
  
+//Ez Namey (Startup name generator)add
 
