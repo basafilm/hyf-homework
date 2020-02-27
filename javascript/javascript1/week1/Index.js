@@ -43,5 +43,10 @@ else(julieBuy)
     housePrice = volumeInMeters[1][1] * 2.5 * 1000 + gardenSizeInM2[1][0] *300;
     console.log('Julie\'s house price should be:' +' ' +housePrice +' ' +'It is'+' ' +[houseCost -housePrice] +' ' +'higher than the market prices.');
  
-//Ez Namey (Startup name generator)add
-
+//Ez Namey (Startup name generator)
+/*
+firstWords =["Easy", "Awesome", "Corporate","Creative","Intelegent","Smart","Fast","Accessable","Honest","Professional", "First Hand"];
+secondWords =["Operator", "Agent", "Brothers","Fifty,Fifty","Elegant","Venlig","Org","Fragment","Power","Perfect", "Lasting"];
+let startupName= firstWords + secondWords;
+console.log(Math.floor(Match.random(0-9) * 10) +0);
+*/
