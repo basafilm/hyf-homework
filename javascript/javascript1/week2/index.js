@@ -44,3 +44,25 @@ function wearSomeThing(temprature){
 }
 
 wearSomeThing(10);
+
+// Number of Students
+
+const class07Students = ["Queen", 'Benjamin'];
+function addStudentToClass(studentName) {
+    if(class07Students> 6){
+        alert('Cannot add more students to class 07');
+    }else if(class07Students.includes(studentName)){
+        alert('Student Benjamin is already in the class')
+    } else {
+        class07Students.push(studentName);
+    }
+}
+console.log(class07Students);
+
+function getNumberOfStudents(){
+    // You write code here
+    return class07Students;
+}
+
+
+
