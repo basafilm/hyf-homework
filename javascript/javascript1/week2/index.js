@@ -1,27 +1,17 @@
 
-/*function getFullName(firstName, surName){
-    return firstName + surName;
-}
-const fullname1= getFullName('Malek ', 'Shafii');
-console.log(fullname1)
-*/
 
 
 function getFullName(firstName, surName, useFormalName){
+    if(useFormalName==true){
+        console.log('Lord!' +' ' + firstName +' ' +surName)
+    }else{
+         return firstName +' ' + surName
+    }
+};
 
-}
-const firstName= '';
-const surName= '';
-let useFormalName= true;  
-if(useFormalName==true){
-    console.log('Lord!' +' ' + firstName +' ' +surName)
-}else{
-    console.log(firstName+' '+surName)
-}
+//Event application
 
-
-
-function weekdayEvent() {
+function weekdayEvent(event) {
 let weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
 let today= new Date();
 let day = today.getDay();
@@ -49,6 +39,7 @@ wearSomeThing(10);
 
 const class07Students = ["Queen", 'Benjamin'];
 function addStudentToClass(studentName) {
+
     if(class07Students> 6){
         alert('Cannot add more students to class 07');
     }else if(class07Students.includes(studentName)){
@@ -61,7 +52,7 @@ console.log(class07Students);
 
 function getNumberOfStudents(){
     // You write code here
-    return class07Students;
+    return class07Students.length;
 }
 
 
