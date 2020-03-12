@@ -1,25 +1,26 @@
 
 
 
-function getFullName(firstName, surName, useFormalName){
-    if(useFormalName==true){
-        console.log('Lord!' +' ' + firstName +' ' +surName)
-    }else{
-         return firstName +' ' + surName
+function getFullName(firstName, surName, formalName){
+    if(formalName===true){
+        return 'Lord!' +' ' + firstName +' ' +surName;
+    } else{
+         return firstName +' ' + surName;
     }
 };
+console.log(getFullName('', '', ''));
+
 
 //Event application
 
 function weekdayEvent(event) {
 let weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
-let today= new Date();
-let day = today.getDay();
-let eventDay = day  % 7;
+let today= new Date().getDay();
+const eventDay = (today+event) % weekDays.length;
 return weekDays[eventDay];
 
 }
-console.log(weekdayEvent(9));
+console.log(weekdayEvent(6));
 
 
 function wearSomeThing(temprature){
