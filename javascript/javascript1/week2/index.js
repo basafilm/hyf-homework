@@ -15,7 +15,7 @@ console.log(getFullName('', '', ''));
 
 function weekdayEvent(event) {
 const weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
-let today= new Date().getDay();
+const today= new Date().getDay();
 const eventDay = (today+event) % weekDays.length;
 return weekDays[eventDay];
 
@@ -55,5 +55,4 @@ function getNumberOfStudents(){
     // You write code here
     return class07Students.length;
 }
-
 
