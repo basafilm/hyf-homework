@@ -14,8 +14,8 @@ console.log(getFullName('', '', ''));
 //Event application
 
 function weekdayEvent(event) {
-let weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
-let today= new Date().getDay();
+const weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
+const today= new Date().getDay();
 const eventDay = (today+event) % weekDays.length;
 return weekDays[eventDay];
 
@@ -27,7 +27,7 @@ function wearSomeThing(temprature){
     
     if(temprature>=18){
         console.log(" Wear T-Shert")
-    }else if(temprature< 18 && temprature>  15 ){
+    }else if( temprature>  15 ){
         console.log( "Wear somethings warm!")
     } else{
         console.log("Wear Something Really Warm!")
@@ -55,6 +55,3 @@ function getNumberOfStudents(){
     // You write code here
     return class07Students.length;
 }
-
-
-
