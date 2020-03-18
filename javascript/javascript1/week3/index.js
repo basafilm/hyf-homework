@@ -2,12 +2,13 @@
 
 const names = ['Peter', 'Ahmad', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrine', 'Tala'];
 const nameToRemove = 'Ahmad';
-
 // Write some code here
-names. splice(1,1)
-console.log(names); 
-
-
+for ( i=0; i<names.length; i++){
+  if(names[i]===nameToRemove){
+    names.splice(i,1);
+  }
+  console.log(names[i]);
+};
 //When will we be there??
 const travelInformation = {
     speed: 50,
@@ -16,12 +17,14 @@ const travelInformation = {
   function travelLenght(){
     const speedPrHuoer = travelInformation.speed;
     const distance = travelInformation.destinationDistance;
-    const length = speedPrHuoer / distance * 60;
-    return `Travel duration is : ${length.toFixed(2)}  `
+    const length = distance/ speedPrHuoer;
+    let houers= Math.floor(length);
+    let minutes = (length-houers) *60;
+    return `Travel duration is : ${houers} houers and ${minutes.toFixed(0)} minutes `
   };
   
   const travelTime = travelLenght(travelInformation);
-  console.log(travelTime); // 4 hours and 42 minutes
+  console.log(travelTime); 
 
 
 //Series duration of my life
@@ -90,15 +93,13 @@ const songDatabase = [{
 const myPlaylist = [];
 
 function addSongToDatabase(song){
-  songDatabase.push({
+  song= songDatabase.push({
     songId: 5,
     title: 'lost in the decert',
     artist: 'Akram',
   } );
-
-  return songDatabase + song
 };
-addSongToDatabase();
+addSongToDatabase(songDatabase);
 console.log(songDatabase);
 
 // the song added becouse songDatabase is a global varible and can be accesable from everywhere.
@@ -109,10 +110,7 @@ function getSongByTitle(title){
 songDatabase.forEach(songTitle=> console.log(songTitle.title.valueOf()));
  let songTitle = songDatabase[3];
 return songTitle
-/*if(songTitle ===title.length) {
-  return title
-} 
-*/
+
 };
 
 const searchedSong = getSongByTitle('When is enough too little?');
@@ -125,19 +123,37 @@ console.log(searchedSong);
     // Create our own playlist
  
     function addSongToMyPlaylist(title){
-      let playlist= addSongToDatabase.forEach();
+      let playlist= songDatabase.findIndex(addSongToDatabase);
       console.log(playlist);
       myPlaylist.push(playlist);
       return myPlaylist + title
       };
       console.log(myPlaylist);
 
-    //Save a note 
+    //Save a note const 
+const notes=[];
     function addNote(content, id){
-     content = 'adding Not';
-     id = 2;
+     if ( typeof content === 'string' && typeof id === Number){
+       notes.push({ content, id})
+     } 
+    };    
 
-     
+function getNoteFromId(id){
+
+  for( let i=0; i <notes.length; i++){
+    if (notes[id] === id ) {
+      return notes[i];
     }
+  }
+return getNoteFromId(id);
 
+};
 
+console.log(notes);
+
+function logOutNotesFormatted(){
+  for (let i=0; i <notes.length; i++){
+    console.log("The note with id: 1, has the following note text: " +notes[i]+".")
+  }
+}
+logOutNotesFormatted();
