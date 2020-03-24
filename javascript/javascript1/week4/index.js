@@ -10,7 +10,7 @@ function getSentimentScore(words){
 
     };
     const scoredWords= words.split(' ');
-for ( let i = 0; i <scoredWords.lenght; i++){
+for ( let i = 0; i <scoredWords.length; i++){
     const myWord = scoredWords[i];
     if (goodWords.includes(myWord)) {
         result.score++;
@@ -38,5 +38,48 @@ function formatCreditCardNumber(number){
 
 const formattedCreditCardObject = formatCreditCardNumber(123456789);
 console.log(formattedCreditCardObject);
+//Character frequencies
 
+  
 
+function getCharacterFrequencies(freQuence){
+   characters=[
+    {
+      character:[],
+      count:0,
+    },
+    {
+      character:[],
+      count:0,
+    },
+    {
+      character:[],
+      count:0,
+    },
+    {
+      character:[],
+      count:0,
+    },
+   ];
+    
+   const countWords= freQuence.split('');
+   for ( let i=0; i< countWords.length; i++){
+     const letter = countWords[i];
+    if(letter.charAt()==='h'){
+        characters[0].character.push(letter)
+        characters[0].count++      
+    } else if (letter.charAt()==='a'){
+      characters[1].character.push(letter)
+      characters[1].count++
+    }else if (letter.charAt()==='p'){
+      characters[2].character.push(letter)
+      characters[2].count++
+    } else if (letter.charAt()==='y'){
+      characters[3].character.push(letter)
+      characters[3].count++
+    }
+   
+  };
+    return characters;
+};
+console.log(getCharacterFrequencies('happy'))
