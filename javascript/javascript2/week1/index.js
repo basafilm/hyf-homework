@@ -57,3 +57,47 @@ function midAverage(mid, av){
 const midAvResult = midAverage(averageOfNumbers, midResult);
 console.log(array);
 
+//Spirit animal name generator
+const bodyPage =document.body.style
+      bodyPage.backgroundColor = 'rgb(150 150 150)';
+      bodyPage.width= '70%';
+      bodyPage.color= 'white'
+      bodyPage.fontSize ='18px'
+
+const creatInput = document.querySelector("input");
+    creatInput.setAttribute("type", "text");
+    creatInput.setAttribute("value", "Write Your Name here!")
+    creatInput.style.backgroundColor= 'rgb(120 120 120)'
+    creatInput.style.color ='white'
+    creatInput.style.padding =' 5px'
+    creatInput.style.marginBottom =' 5px'
+    creatInput.style.marginTop =' 5px'
+creatInput.addEventListener('click', function(){
+
+    alert('Benjamin - The fullmoon wolf');
+});
+
+const fram = document.getElementById('form').elements;
+    // access tages 
+    const input= fram["animal-input"];
+    const button = fram["animal-button"];
+   
+    // add value 
+    input.setAttribute("type", "text");
+    input.setAttribute('value', 'write here');
+    button.setAttribute('class', 'me!');
+    button.innerHTML= 'Click On Me!';
+   
+const animalNames =['The crying butterfly', ' Angry Buffalo', 'Sleepy Pig', 'Goosy Cat' ];
+
+function animal(){
+    
+const randumAnim= animalNames[Math.floor(Math.random() * animalNames.length)];
+const form2= fram[0].value
+if ( form2){
+  fram[1].addEventListener('click', function(){
+  alert(` ${input.value}: ${randumAnim}`);
+  })
+}
+};
+console.log(animal(animalNames));
