@@ -1,12 +1,4 @@
 
-/*function getFullName(firstName, surName){
-    return firstName + surName;
-}
-const fullname1= getFullName('Malek ', 'Shafii');
-console.log(fullname1)
-*/
-
-
 function getFullName(firstName, surName, useFormalName){
 
 }
@@ -30,8 +22,6 @@ return weekDays[eventDay];
 
 }
 console.log(weekdayEvent(9));
-
-
 function wearSomeThing(temprature){
     
     if(temprature>=18){
