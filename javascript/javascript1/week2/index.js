@@ -10,9 +10,6 @@ if(useFormalName==true){
 }else{
     console.log(firstName+' '+surName)
 }
-
-
-
 function weekdayEvent() {
 let weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
 let today= new Date();
@@ -26,7 +23,7 @@ function wearSomeThing(temprature){
     
     if(temprature>=18){
         console.log(" Wear T-Shert")
-    }else if(temprature< 18 && temprature>  15 ){
+    }else if( temprature>  15 ){
         console.log( "Wear somethings warm!")
     } else{
         console.log("Wear Something Really Warm!")
@@ -53,6 +50,3 @@ function getNumberOfStudents(){
     // You write code here
     return class07Students;
 }
-
-
-
