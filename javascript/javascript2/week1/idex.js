@@ -1,18 +1,17 @@
 //Find the shortest word
 const danishWords = ['bil', 'plante', 'kaffe', 'bog', 'ø', 'planetarium'];
 
-function findShortWord(allWords){
-    let allStrings= allWords[0].length;
+function findShortWord(words){
+    let strings= words.length;
     let shortWords = 0;
-    for ( let i=0; i<allWords.length; i++){
-       const shortest = allWords[i]// display all strings inside danishWords Array 
+    for ( let i=0; i<words.length; i++){
+       const shortest = words[i]// display all strings inside danishWords Array 
        const wordLenght = shortest.length; // display the number of letter of all strings
-        if (wordLenght < allStrings){ 
-            allStrings =wordLenght;
+        if (wordLenght < strings){ 
             shortWords=i;
         }
     }
-    return allWords[shortWords];
+    return words[shortWords];
 }
 console.log(findShortWord(danishWords));
 
@@ -22,28 +21,27 @@ const housePrices = [3000000, 3500000, 1300000, 40000000, 100000000, 8000000, 21
 
 function findAverage(arr){
 let sumOfNumbers = 0;
- for ( i= 0; i<arr.length; i++){
-     sumOfNumbers= sumOfNumbers+arr[i];
-     averageOfNumbers=sumOfNumbers/arr.length;
-};
-return averageOfNumbers;
-};
+    for ( let i= 0; i<arr.length; i++){
+        sumOfNumbers= sumOfNumbers+arr[i];
+        averageOfNumbers=sumOfNumbers/arr.length;
+    };
+    return averageOfNumbers;
+    };
 console.log(findAverage(housePrices));
 // Midian 
 function findMedian(mid){
-    let lenghtOfNumbers = mid.length;
-    let midNumber=0;
-for (let i=0; i<mid.length; i++ ){
-    if ( lenghtOfNumbers % 2 ===0){
-        midNumber= (mid[lenghtOfNumbers /2 -1]+ mid[lenghtOfNumbers /2])/ 2;
+        let lenghtOfNumbers = mid.length;
+        let midNumber=0;
+    for (let i=0; i<mid.length; i++ ){
+        if ( lenghtOfNumbers % 2 ===0){
+            midNumber= (mid[lenghtOfNumbers /2 -1]+ mid[lenghtOfNumbers /2])/ 2;
 
-    } else {
-        midNumber = mid[(lenghtOfNumbers -1) /2];
+        } else {
+            midNumber = mid[(lenghtOfNumbers -1) /2];
+        }
+        return midNumber
     }
-    return midNumber
-}
-    
-}
+};
 const midResult = findMedian(housePrices)
 console.log(midResult);
 
@@ -81,27 +79,37 @@ const t = document.createElement('p');
     document.getElementById('form').appendChild(t);
     t.style.fontFamily ='sans-serif'
 
-const fram = document.getElementById('form').elements;
+const formSec = document.getElementById('form').elements;
     // access tages 
-    const input= fram["animal-input"];
-    const button = fram["animal-button"];
+    const input= formSec["animal-input"];
+    const button = formSec["animal-button"];
     // add value 
     input.setAttribute("type", "text");
     input.setAttribute('value', 'write here');
     button.setAttribute('class', 'me!');
     button.innerHTML= 'Click On Me!';
    
-const animalNames =['The crying butterfly', ' Angry Buffalo', 'Sleepy Pig', 'Goosy Cat' ];
+const animalNames =['The crying butterfly', ' Angry Buffalo', 'Sleepy Pig', 'Goosy Cat', ' Quicky Turtle ' ];
 
-function animal(){
-    
+function animal(){  
 const randumAnim= animalNames[Math.floor(Math.random() * animalNames.length)];
-const form2= fram[0].value
-if ( form2){
-  fram[1].addEventListener('click', function(al){
+const form= formSec[0].value
+const option1 = document.createElement('OPTION');
+const option2 = document.createElement('OPTION');
+button.appendChild(option1);
+option1.innerHTML='hover';
+button.appendChild(option2);
+option2.innerHTML='click';
+if ( form){
+  formSec[1].addEventListener('click', function(al){
       al.preventDefault();
       alert(` ${input.value} : ${randumAnim}`);
+
+      formSec[1].addEventListener('mouseover', function(al){
+        al.preventDefault();
+        alert(` ${input.value} : ${randumAnim}`);
+    })
   })
-}
+} 
 };
-console.log(animal(animalNames));
+animal(animalNames);

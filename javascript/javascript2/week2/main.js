@@ -28,7 +28,6 @@ const doubleOdNumber= numbers.filter((value)=>{
 console.log(doubleOdNumber);
 
 
-
 const searchBar = document.querySelector('div.search > input');
 const productNames = document.querySelector('div.products >ul'); 
 
