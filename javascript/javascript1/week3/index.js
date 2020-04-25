@@ -1,14 +1,14 @@
 //Item array removal
-
 const names = ['Peter', 'Ahmad', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrine', 'Tala'];
 const nameToRemove = 'Ahmad';
-// Write some code here
-for ( i=0; i<names.length; i++){
+
+for ( let i=0; i<names.length-1; i++){
   if(names[i]===nameToRemove){
-    names.splice(i,1);
+    names.splice(i,1)
   }
-  console.log(names[i]);
 };
+console.log(names);
+
 //When will we be there??
 const travelInformation = {
     speed: 50,
@@ -47,24 +47,57 @@ const seriesDurations = [
     hours: 12,
     minutes: 0,
   }
-]
-let gameOfThrones= seriesDurations[0].days *24 + seriesDurations[0].hours + seriesDurations[0].minutes;
-var age = 80* Math.floor( 365 * 24);
-const gameOfPercen = gameOfThrones/ age * 100;
-const lemitDeceimil1 = gameOfPercen.toFixed(3);
-console.log(`${seriesDurations[0].title} took ${lemitDeceimil1} % of my life`);
+];
+function logOutSeriesText(durations) {
+  let age = 80* 365 * 24;
+  allToGather =0;
+  for (let duration of durations){
+ const dayToHour = duration.days * 24;
+ const hour = duration.hours;
+ const minute = duration.minutes ;
+ const totaleDuration = dayToHour + hour + minute; 
+ let percentage = totaleDuration / age * 100;
+ console.log(`${duration.title} tok : ${percentage.toFixed(3)}  % of my life`);
+ allToGather +=percentage; 
+  };
+  console.log(`In total this movies tok : ${allToGather.toFixed(3)} % of mylife`);
+  return durations
+}
+console.log(logOutSeriesText(seriesDurations));
 
-let sopranos= seriesDurations[1].days *24 + seriesDurations[1].hours + seriesDurations[1].minutes;
-const sopranosOfPercen = sopranos/ age * 100;
-const lemitDeceimil2 = sopranosOfPercen.toFixed(3);
 
-console.log(`${seriesDurations[1].title} took ${lemitDeceimil2} % of my life `);
+    //Save a note const 
+const notes=[];
+    function saveNote(content, id){
+      do {
+        notes.push({content, id})
+      }
+      while ( typeof content=== "string" && typeof id === Number);
+    };    
+     saveNote('Pick up groceries', 1);
+     saveNote('Do laundry', 2);
+     saveNote('wash hands during corona time', 3);
 
-let theWire= seriesDurations[2].days *24 + seriesDurations[2].hours + seriesDurations[2].minutes;
-const wireOfPercen = theWire/ age * 100;
-const lemitDeceimil3 = wireOfPercen.toFixed(3);
+    console.log(notes);
 
-console.log(`${seriesDurations[2].title} took ${lemitDeceimil3} % of my life `);
+
+//Get a note
+function getNote(id){
+  return notes[id];
+};
+const firstNote = getNote(2); 
+console.log(firstNote)
+
+//Log out notes
+function logOutNotesFormatted(note){
+  for (let i =0; i< notes.length; i++){
+    const noteId = note[i]['id']
+    const noteText = note[i]['content'];
+    console.log(`The note with Id: ${noteId} , has the following note text: ${noteText}`)  
+  }
+  return note
+}
+logOutNotesFormatted(notes);
 
 
 //My favorite songs
@@ -93,11 +126,12 @@ const songDatabase = [{
 const myPlaylist = [];
 
 function addSongToDatabase(song){
-  song= songDatabase.push({
+  songDatabase.push({
     songId: 5,
     title: 'lost in the decert',
     artist: 'Akram',
-  } );
+});
+return songDatabase[song] 
 };
 addSongToDatabase(songDatabase);
 console.log(songDatabase);
@@ -108,52 +142,21 @@ console.log(songDatabase);
 
 function getSongByTitle(title){
 songDatabase.forEach(songTitle=> console.log(songTitle.title.valueOf()));
- let songTitle = songDatabase[3];
-return songTitle
-
+return title
 };
-
 const searchedSong = getSongByTitle('When is enough too little?');
 console.log(searchedSong);
-
-const searchedSong2 = getSongByTitle('When is enough too');
-console.log(searchedSong); 
 
 
     // Create our own playlist
  
-    function addSongToMyPlaylist(title){
-      let playlist= songDatabase.findIndex(addSongToDatabase);
-      console.log(playlist);
-      myPlaylist.push(playlist);
-      return myPlaylist + title
+    function addSongToMyPlaylist(ev){
+      songDatabase.forEach(function(song){
+      if (ev ===song.title){
+        myPlaylist.push(ev)
+      }
+      })
       };
+      addSongToMyPlaylist('lost in the decert')
+      addSongToMyPlaylist('Blacker than black')
       console.log(myPlaylist);
-
-    //Save a note const 
-const notes=[];
-    function addNote(content, id){
-     if ( typeof content === 'string' && typeof id === Number){
-       notes.push({ content, id})
-     } 
-    };    
-
-function getNoteFromId(id){
-
-  for( let i=0; i <notes.length; i++){
-    if (notes[id] === id ) {
-      return notes[i];
-    }
-  }
-return getNoteFromId(id);
-
-};
-
-console.log(notes);
-
-function logOutNotesFormatted(){
-  for (let i=0; i <notes.length; i++){
-    console.log("The note with id: 1, has the following note text: " +notes[i]+".")
-  }
-}
-logOutNotesFormatted();

@@ -1,24 +1,36 @@
 
+// getFullName 
+function getFullName(firstName, surName){
+    const fullname1= firstName;
+    const fullname2= surName;
+    return fullname1 + ' ' + fullname2
+}
+console.log(getFullName('Benjamin', 'Hughes'));
+// getFormalName
 function getFullName(firstName, surName, useFormalName){
+    const fullname1= firstName;
+    const fullname2= surName;
+    if ( useFormalName= true) {
+        return 'Lord! ' + fullname1 + ' ' + fullname2
+    } else{
+        return fullname1 + ' ' + fullname2
+    } 
+}
+const fullName = getFullName('Malek', 'Shafei', 'useFormalName');
+console.log(fullName);
 
-}
-const firstName= '';
-const surName= '';
-let useFormalName= true;  
-if(useFormalName==true){
-    console.log('Lord!' +' ' + firstName +' ' +surName)
-}else{
-    console.log(firstName+' '+surName)
-}
-function weekdayEvent() {
-let weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
-let today= new Date();
-let day = today.getDay();
-let eventDay = day  % 7;
+// Event application
+const weekDays= ['Sunday','Monday','Tursday','Wedensday','Thursday', 'Friday', 'Sutarday'];
+function getEventWeekday(event) {
+let day= new Date();
+let toDay = day.getDay();
+eventDay = (toDay+ event) %7;
 return weekDays[eventDay];
-
 }
-console.log(weekdayEvent(9));
+const yourEvent = getEventWeekday(5);
+console.log(yourEvent);
+
+//Weather wear
 function wearSomeThing(temprature){
     
     if(temprature>=18){
@@ -34,12 +46,12 @@ wearSomeThing(10);
 
 // Number of Students
 
-const class07Students = ["Queen", 'Benjamin'];
+const class07Students = ["Queen"];
 function addStudentToClass(studentName) {
-    if(class07Students> 6){
+    if(class07Students.length> 6){
         alert('Cannot add more students to class 07');
     }else if(class07Students.includes(studentName)){
-        alert('Student Benjamin is already in the class')
+        alert(`Student ${studentName} is already in the class`)
     } else {
         class07Students.push(studentName);
     }
@@ -50,3 +62,4 @@ function getNumberOfStudents(){
     // You write code here
     return class07Students;
 }
+
