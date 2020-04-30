@@ -1,0 +1,13 @@
+#table{
+    background-color: rgb(147, 125, 79);
+    padding: 5px;
+}
+ul {
+    background-color: rgb(157, 135, 79);
+}
+li {
+ list-style: none;
+ background-color: rgb(156, 140, 89);
+ padding: 3px;
+ margin: 1px;
+}
