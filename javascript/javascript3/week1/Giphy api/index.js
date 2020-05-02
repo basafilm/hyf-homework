@@ -10,20 +10,20 @@ document.getElementById('btnSearch').addEventListener('click', event =>{
     //console.log(searchUrl)
     fetch(searchUrl)
     .then(response=> response.json())
-    .then(resulte =>{
+    .then(result =>{
       let fig =document.createElement('figure');  
       let image =document.createElement('img');
       let caption= document.createElement('figcaption');
       image.src = resulte.data[1].images.downsized.url;
       image.alt = resulte.data.title;
       image.style.width= '480px';
-      caption.textContent =resulte.data[1].title;
+      caption.textContent =result.data[1].title;
       fig.appendChild(image);
       fig.appendChild(caption);
       let outPut = document.querySelector('.out');
       outPut.insertAdjacentElement('afterbegin', fig);
 
-    //console.log(resulte)
+    //console.log(result)
     })
     .catch(err=>{
 console.error(err);
