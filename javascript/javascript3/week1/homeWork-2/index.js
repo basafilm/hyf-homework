@@ -21,7 +21,7 @@ const cityName= resulte.name
    let sunRise = new Date(resulte.sys.sunrise * 1000).toGMTString().slice(-12, -7);
    let sunSet = new Date(resulte.sys.sunset * 1000).toGMTString().slice(-12, -7);
 // wind
-   let winde = parseFloat((resulte.wind.speed* 1.609344).toFixed(2));
+   let getWind = parseFloat((resulte.wind.speed* 1.609344).toFixed(2));
 // map   
 
     let runWeather = document.getElementById("myInput").value;
@@ -44,7 +44,7 @@ const cityName= resulte.name
         set[1].innerHTML= `Sun Set: ${sunSet}`
 // wind
         const windSpeed = document.querySelector('table').rows[4].cells
-        windSpeed [0].innerHTML= `Wind Speed: ${winde} kph`
+        windSpeed [0].innerHTML= `Wind Speed: ${getWind} kph`
     } else {
         alert('Here you can see onley Copenhagen\'s weather')
     }
