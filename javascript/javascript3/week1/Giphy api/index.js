@@ -25,8 +25,8 @@ document.getElementById('btnSearch').addEventListener('click', event =>{
 
     //console.log(resulte)
     })
-    .catch(ror=>{
-console.error(ror);
+    .catch(err=>{
+console.error(err);
 });
 });
 };
