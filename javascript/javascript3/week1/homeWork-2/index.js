@@ -1,35 +1,31 @@
 // Weather app
-//efe28836fdf80aeac319e828033d2561
-
+const myKey ="efe28836fdf80aeac319e828033d2561"
 function myFunction(){
-    const weatheUrl=  `https://api.openweathermap.org/data/2.5/weather?q=copenhagen,dk&appid=efe28836fdf80aeac319e828033d2561`
+    let cityName = document.getElementById("myInput").value;
+    const weatheUrl=  `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myKey}`
 fetch(weatheUrl)
 .then(response => response.json())
-.then(resulte=>{
-const cityName= resulte.name
-
-    let cphWeather = resulte.weather.map(weather=>{
+.then(result=>{
+const city= result.name
+    let cphWeather = result.weather.map(weather=>{
         return  weather.main
     })
-    let weatherDisc= resulte.weather.map(discription=>{
+    let weatherDisc= result.weather.map(discription=>{
         return discription.description
     })
 //temperature
-    let teperature =parseFloat((resulte.main.temp-273.15).toFixed(2));
-    let feels =parseFloat((resulte.main.feels_like-273.15).toFixed(2));
+    let teperature =parseFloat((result.main.temp-273.15).toFixed(2));
+    let feels =parseFloat((result.main.feels_like-273.15).toFixed(2));
 // Sun rise and set
-   let sunRise = new Date(resulte.sys.sunrise * 1000).toGMTString().slice(-12, -7);
-   let sunSet = new Date(resulte.sys.sunset * 1000).toGMTString().slice(-12, -7);
+   let sunRise =new Date(result.sys.sunrise * 1000).toUTCString().slice(-12, -7);
+   let sunSet = new Date(result.sys.sunset * 1000).toUTCString().slice(-12, -7);
 // wind
-   let getWind = parseFloat((resulte.wind.speed* 1.609344).toFixed(2));
+   let getWind = parseFloat((result.wind.speed* 1.609344).toFixed(2));
 // map   
-
-    let runWeather = document.getElementById("myInput").value;
-    if(runWeather.includes('Copenhagen')){
-        const city =document.querySelector('table').rows[0].cells
-        city[0].innerHTML=` <h3>${cityName}:</h3>`
+        const cities =document.querySelector('table').rows[0].cells
+        cities[0].innerHTML=` <h3>${city}:</h3>`
         const weather = document.querySelector('table').rows[1].cells
-        weather[0].innerHTML= `Situation : ${cphWeather}y`
+        weather[0].innerHTML= `Situation : ${cphWeather}`
         const weather1 = document.querySelector('table').rows[1].cells
         weather1[1].innerHTML= `Intensity : ${weatherDisc}`
 //temperature
@@ -45,11 +41,11 @@ const cityName= resulte.name
 // wind
         const windSpeed = document.querySelector('table').rows[4].cells
         windSpeed [0].innerHTML= `Wind Speed: ${getWind} kph`
-    } else {
-        alert('Here you can see onley Copenhagen\'s weather')
-    }
-     
-    //console.log(resulte)
+    
+   console.log(result)
 })
+.catch(error => {
+    console.log(error)
+});
 };
  
