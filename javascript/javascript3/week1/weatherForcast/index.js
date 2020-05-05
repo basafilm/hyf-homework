@@ -6,7 +6,8 @@ function myFunction(){
 fetch(weatheUrl)
 .then(response => response.json())
 .then(result=>{
-const city= result.name
+const city= result.name;
+const country = result.sys.country;
     let cphWeather = result.weather.map(weather=>{
         return  weather.main
     })
@@ -23,7 +24,7 @@ const city= result.name
    let getWind = parseFloat((result.wind.speed* 1.609344).toFixed(2));
 // map   
         const cities =document.querySelector('table').rows[0].cells
-        cities[0].innerHTML=` <h3>${city}:</h3>`
+        cities[0].innerHTML=` <h3>${city}, ${country}:</h3>`
         const weather = document.querySelector('table').rows[1].cells
         weather[0].innerHTML= `Situation : ${cphWeather}`
         const weather1 = document.querySelector('table').rows[1].cells
@@ -45,7 +46,7 @@ const city= result.name
    console.log(result)
 })
 .catch(error => {
-    console.log(error)
+    alert(error)
 });
 };
  
