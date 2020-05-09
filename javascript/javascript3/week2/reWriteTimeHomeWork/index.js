@@ -3,17 +3,16 @@ const myLocation =document.getElementById('myLocation')
 const pTage = document.getElementById("p")
 const link = document.getElementById('a')
 
-function setTimeoutPromise(){
+function setTimeoutPromise(time){
     return new Promise(resolve=>{
         setTimeout(()=>{
-            console.log('Called after 3 seconds');
-            resolve()
-        },1000)
+            resolve('Called after 3 seconds')
+        },time * 1000)
     })   
 }
 async function getCurrentPosition(resolve){
     try{
-        const postion = await setTimeoutPromise()
+        const postion = await setTimeoutPromise(5)
         navigator.geolocation.getCurrentPosition((position)=>{
         const latitude =position.coords.latitude;
         const longitude =position.coords.longitude
@@ -27,4 +26,3 @@ async function getCurrentPosition(resolve){
 }
 myLocation.addEventListener('click', getCurrentPosition)
 
-//Fetching and waiting 
