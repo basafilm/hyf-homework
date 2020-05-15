@@ -10,16 +10,16 @@ fetch(movieUrl)
            const badMoviesTitle = lowRatedM.map(t=>`<ul>${t.title}</ul>`);
            const badMoviesRate = lowRatedM.map(rat=>`<ul>${rat.rating}</ul>`);
            LowRatedMovies[0].innerHTML = ` Bad Rated Movies Title: <li>${badMoviesTitle.join('')}</li>`
-           LowRatedMovies[1].innerHTML = ` Bad Rated Movies Rating: <li>${badMoviesRate.join('')}</li>`
+           LowRatedMovies[1].innerHTML = ` Rating: <li>${badMoviesRate.join('')}</li>`
 
   
     const belowRatedMoviesSince2000= movies.filter(movie=> movie.year<2000 && movie.rating<5)
          const badMoviesYearTitle = belowRatedMoviesSince2000.map(MTitle =>`<ul> ${MTitle.title}</ul>`);
          const badMoviesYearRating= belowRatedMoviesSince2000.map(rat => `<ul>${rat.rating}</ul>`);
          const badMoviesYearProductionDate= belowRatedMoviesSince2000.map(y => `<ul>${y.year}</ul>`);
-         badMoviesYear[0].innerHTML= `Bad Movies Titles Since Year 2000: |${badMoviesYearTitle.join('')}`;
-         badMoviesYear[1].innerHTML= `Bad Movies Rating : |${badMoviesYearRating.join('')}`;
-         badMoviesYear[2].innerHTML= `Bad Movies Production Year: ${badMoviesYearProductionDate.join('')}`;
+         badMoviesYear[0].innerHTML= `Bad Movies Titles Since Year 2000: ${badMoviesYearTitle.join('')}`;
+         badMoviesYear[1].innerHTML= `Rating : ${badMoviesYearRating.join('')}`;
+         badMoviesYear[2].innerHTML= `Production Year: ${badMoviesYearProductionDate.join('')}`;
     })
  
 
