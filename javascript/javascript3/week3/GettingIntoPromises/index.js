@@ -1,7 +1,4 @@
 //Getting into promises
-
-  let names =['Aswini-D3', 'tariqjavid', 'LucyChyzhova' ]
-  let name = names.forEach(user => user);
   let repoUrls = `https://api.github.com/search/repositories?q=user:`;
    const getUrl = async (user) =>{
        const response = await fetch(repoUrls.concat(user))
