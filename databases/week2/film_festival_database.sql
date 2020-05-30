@@ -10,7 +10,7 @@ USE film_festival;
 CREATE TABLE directors (
 `id` INT(6) UNSIGNED AUTO_INCREMENT,
 `firstName` VARCHAR(255) NOT NULL,
-`secondtName` VARCHAR(255) NOT NULL,
+`secondName` VARCHAR(255) NOT NULL,
 `birth` DATE,
 `email` VARCHAR(255) NOT NULL,
 `contactNumber` VARCHAR(255) NOT NULL,
@@ -18,19 +18,16 @@ CREATE TABLE directors (
 `country` VARCHAR(255) NOT NULL,
 PRIMARY KEY (`id` )
 )ENGINE=INNODB;
--- changing mistake column name
-ALTER TABLE directors 
-RENAME COLUMN `secondtName` TO `secondName`;
 
 CREATE TABLE film (
-`film_d` INT(6) UNSIGNED AUTO_INCREMENT,
+`film_id` INT(6) UNSIGNED AUTO_INCREMENT,
 `title` VARCHAR(255) NOT NULL,
 `duration` VARCHAR(255) NOT NULL,
 `gener` VARCHAR(255) NOT NULL,
 `production_year` DATE,
 `production_company` VARCHAR(255) NOT NULL,
 `country` VARCHAR(255) NOT NULL,
- PRIMARY KEY (`film_d` ),
+ PRIMARY KEY (`film_id` ),
  -- foriegn key related to directors table
 `director_id` INT(6) UNSIGNED NOT NULL,
  FOREIGN KEY (`director_id`)
@@ -39,52 +36,34 @@ CREATE TABLE film (
  ON UPDATE CASCADE
 )ENGINE=INNODB;
 
--- changing mistake column name
-ALTER TABLE film 
-RENAME COLUMN `film_d` TO `film_id`;
+SET FOREIGN_KEY_CHECKS=0;
 
 CREATE TABLE screening (
 `id` INT(6) UNSIGNED AUTO_INCREMENT,
-`film_title` VARCHAR(255) NOT NULL,
 `vanue` VARCHAR(255) NOT NULL, 
 `begins` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 `ends` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
- -- below two foriegn key access to directors and film tabels related column
-`director_id` INT(6) DEFAULT ''  NOT NULL,
-`film_id` INT(6) DEFAULT ''  NOT NULL,
- FOREIGN KEY (`director_id`)
- REFERENCES `directors`(`id`)
- ON DELETE CASCADE
- ON UPDATE CASCADE,
- 
- FOREIGN KEY (`film_id`)
- REFERENCES `film`(`film_d`)
+ -- below the foriegn key access to directors and film tabels related column
+`filmId` INT(6) UNSIGNED  NOT NULL,
+ FOREIGN KEY (`filmId`)
+ REFERENCES `film`(`film_id`)
  ON DELETE CASCADE
  ON UPDATE CASCADE
 )ENGINE=INNODB;
 
--- adding constarint to foriegn key (missed when created )
-
-ALTER TABLE screening
-ADD CONSTRAINT FK_directors
-FOREIGN KEY (`director_id`) 
-REFERENCES `directors`(`id`);
-
 -- changing the reference of firiegn key and adding constarint
 ALTER TABLE screening 
 ADD CONSTRAINT fk_film 
-FOREIGN KEY (`film_id`) REFERENCES `film`(`film_id`);
+FOREIGN KEY (`filmId`) REFERENCES `film`(`film_id`);
 
 INSERT INTO directors (firstName, secondName, birth, email, contactNumber, address, country)
 VALUES ('Malek', 'Shafii', '1974-05-27' , 'malek.immart@gmail.com', 91658509 , '2630 Taastrup' , 'Denmark');
 
 INSERT INTO film (title, duration, gener, production_year, production_company, country, director_id)
-VALUES ('MOHTARAMA', '60m', 'documentary' ,'2012-05-30', 'BASA Film', 'Afghanistan');
-
-INSERT INTO screening (film_title, vanue, begins, ends, director_id, film_id )
-VALUES ('MOHTARAMA', 'CPH-DOX', '2020-05-10 09:01:10' ,'2020-06-10 09:01:10', '1','1');
+VALUES ('MOHTARAMA', '60m', 'documentary' ,'2012-05-30', 'BASA Film', 'Afghanistan', '1');
+-- Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`film_festival`.`film`, CONSTRAINT `film_ibfk_1` FOREIGN KEY (`director_id`) REFERENCES `directors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
 
 
-
-
+INSERT INTO screening (vanue, begins, ends, filmId )
+VALUES ('CPH-DOX', '2020-05-10 09:01:10' ,'2020-06-10 09:01:10','1');

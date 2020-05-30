@@ -71,14 +71,13 @@ ON student (name);
 
 -- Add a new column to the class table named status which can only have the following values: not-started, ongoing, finished (hint: enumerations).
 ALTER TABLE class
-ADD column status ENUM ('not-started','ongoing','finished' );
-
+ADD column status SET ('not-started','ongoing','finished' );
 
 -- Part 3: More queries 
 USE hyf_lesson2;
 
 -- Get all the tasks assigned to users whose email ends in @spotify.com
-SELECT task.*, user.id AS user_id,  user.email AS user_email 
+SELECT task.* , MIN(user.email)
 FROM user
 INNER JOIN user_task ON user.id = user_task.user_id
 INNER JOIN task ON user_task.task_id =task.id
@@ -86,20 +85,19 @@ WHERE user.email LIKE '%@spotify.com'
 GROUP BY task.id; 
 
 -- Get all the tasks for 'Donald Duck' with status 'Not started'
-SELECT task.*, 
-user.name , user.email,
-status.name
+SELECT task.*, MIN(user.name) , 
+status.name AS status_name
 FROM user
 INNER JOIN user_task ON user.id = user_task.user_id
 INNER JOIN task ON user_task.task_id =task.id
 INNER JOIN status ON status.id = task.status_id
 WHERE user.name = 'Donald Duck' AND status.name = 'Not started'
-GROUP BY user.name; 
+GROUP BY task.id; 
 
 
 -- Get all the tasks for 'Maryrose Meadows' that were created in september (hint: month(created)=month_number)
 SELECT task.* , 
-user.name,
+MIN(user.name),
 status.name
 FROM user
 INNER JOIN user_task ON user.id = user_task.user_id
@@ -113,8 +111,5 @@ GROUP BY task.id;
 SELECT MONTH(task.created) AS months, COUNT(task.id)
 FROM task
 GROUP BY month(task.created)
-ORDER BY MONTH(task.created) ASC; 
-
-
--- Part 4: Creating a database
+ORDER BY MONTH(task.created) ASC;
 
