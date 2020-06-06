@@ -157,4 +157,23 @@ INNER JOIN Meal ON Meal.id = Reservation.meal_id
 ORDER BY Meal.id DESC;
 
 -- Sort all meals by average number of stars in the reviews
+SELECT * 
+FROM Review;
+
+ALTER TABLE Review 
+ADD `stars` FLOAT DEFAULT 0
+AFTER `description`; 
+
+      SET foreign_key_checks = 0;
+
+INSERT INTO Review (id, title, description, stars , meal_id, created_date)
+VALUES 
+( '7', 'Shawarma', 'not good', 5, '1', '2020-05-22 : 08:05:01'),
+('8' , 'Cheken BBQ', 'testy', 3,'2', '2020-05-22 : 08:04:11');
+
+SELECT * 
+FROM Meal 
+INNER JOIN Review ON meal_id = Meal.id
+GROUP BY Review.id
+ORDER BY AVG(Review.stars) DESC; 
 
