@@ -16,13 +16,6 @@ CREATE Table Meal (
  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-ALTER TABLE Meal
-  ADD CONSTRAINT `fk_meal_reserv` 
-   FOREIGN KEY (`max_reservations`) 
-    REFERENCES `Reservation` (`id`) 
-      ON DELETE CASCADE ON UPDATE CASCADE;
-      
-      SET foreign_key_checks = 0;
 
 CREATE Table Reservation (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -40,7 +33,8 @@ CREATE Table Reservation (
 CREATE Table Review (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
  `title` varchar(500) NOT NULL,
-  `description` text,
+ `description` text,
+ `stars` FLOAT DEFAULT 0,
  `meal_id` int(10) unsigned NOT NULL,
  `created_date` date,
   CONSTRAINT `fk_review_meal` 
@@ -63,8 +57,12 @@ SELECT *
 FROM Meal; 
 
 -- Get a meal with any id, fx 1
-SELECT Meal.id 
-FROM Meal;
+SELECT Meal.id,Meal.title,Meal.description,Meal.location,Meal.when,Meal.max_reservations,Meal.price,Meal.created_date
+FROM Meal
+WHERE id = 3; 
+
+
+
 -- Update a meal with any id, fx 1. Update any attribute fx the title or multiple attributes
 UPDATE Meal
 SET description = 'very Chelly' , max_reservations= '5' , price = 150
@@ -87,8 +85,9 @@ VALUES ('1' , 8, '3' , '2020-05-23');
 
 -- Get a reservation with any id, fx 1
 
-SELECT id
-FROM Reservation; 
+SELECT Reservation.id, Reservation.number_of_guests,Reservation.meal_id,Reservation.created_date
+FROM Reservation
+WHERE id = 1;
 
 -- Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes
 
@@ -105,16 +104,14 @@ VALUES
 
 
 -- Get a review with any id, fx 1
-SELECT id =1
-FROM REview; 
--- OR
+
 SELECT *
 FROM Review
 WHERE id = 1; 
 
 -- Update a review with any id, fx 1. Update any attribute fx the title or multiple attributes
 UPDATE Review
-SET id = 5 , created_date = '2020-06-20 : 08:05:01'
+SET id = 5 , created_date = '2020-06-20'
 WHERE id =4;
 
 -- Get meals that has a price smaller than a specific price fx 90
@@ -123,9 +120,12 @@ SELECT*
 FROM Meal WHERE price  <90 ;
 
 -- Get meals that still has available reservations
-SELECT * , Reservation.id
-FROM Meal 
-INNER JOIN Reservation ON Reservation.meal_id = Meal.id; 
+SELECT * 
+FROM Meal
+WHERE max_reservations = 0;
+
+SELECT *
+FROM Reservation;
 
 -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
 
@@ -135,43 +135,41 @@ FROM Meal WHERE title LIKE '%sand%';
 -- Get meals that has been created between two dates
 SELECT *
 FROM Meal 
-WHERE created_date BETWEEN 2020-05-21 AND 2020-06-22;
+WHERE created_date BETWEEN '2020-05-21' AND '2020-06-22';
 
 -- Get only specific number of meals fx return only 5 meals
 
 SELECT *
 FROM Meal 
-WHERE Meal.id  <=5;
+WHERE Meal.id  BETWEEN 3 AND 4; 
+
 
 -- Get the meals that have good reviews
 SELECT * 
 FROM Meal 
 INNER JOIN Review ON meal_id = Meal.id
-WHERE Review.description = 'very testy' ;
+WHERE Review.stars >=5 ;
 
 -- Get reservations for a specific meal sorted by created_date
 
-SELECT Reservation.id =1
+SELECT *
 FROM Reservation 
 INNER JOIN Meal ON Meal.id = Reservation.meal_id 
-ORDER BY Meal.id DESC;
+WHERE Reservation.id = 1
+ORDER BY Reservation.created_date;
 
 -- Sort all meals by average number of stars in the reviews
 SELECT * 
 FROM Review;
 
-ALTER TABLE Review 
-ADD `stars` FLOAT DEFAULT 0
-AFTER `description`; 
-
-      SET foreign_key_checks = 0;
-
 INSERT INTO Review (id, title, description, stars , meal_id, created_date)
 VALUES 
-( '7', 'Shawarma', 'not good', 5, '1', '2020-05-22 : 08:05:01'),
-('8' , 'Cheken BBQ', 'testy', 3,'2', '2020-05-22 : 08:04:11');
+( '6', 'Shawarma', 'not good', 5, '1', '2020-05-22 : 08:05:01'),
+('9' , 'Cheken BBQ', 'testy', 3,'2', '2020-05-22 : 08:04:11');
 
-SELECT * 
+-- Error Code: 1062. Duplicate entry '7' for key 'review.PRIMARY'
+
+SELECT DISTINCT Meal.id, Meal.title ,Review.id, Review.stars AS review_stars
 FROM Meal 
 INNER JOIN Review ON meal_id = Meal.id
 GROUP BY Review.id
