@@ -81,7 +81,7 @@ FROM Reservation;
 
 -- Add a new reservation
 INSERT INTO Reservation 
-VALUES ('1' , 8, '3' , '2020-05-23');
+VALUES ('2' , 5, '2' , '2020-05-20');
 
 -- Get a reservation with any id, fx 1
 
@@ -120,9 +120,11 @@ SELECT*
 FROM Meal WHERE price  <90 ;
 
 -- Get meals that still has available reservations
-SELECT * 
+SELECT  Meal.id, Meal.title,Meal.max_reservations, COALESCE(SUM(Reservation.number_of_guests))
 FROM Meal
-WHERE max_reservations = 0;
+LEFT JOIN Reservation ON Meal.id = Reservation.meal_id
+WHERE max_reservations <= Reservation.number_of_guests || Reservation.number_of_guests < Meal.max_reservations
+GROUP BY Reservation.id;
 
 SELECT *
 FROM Reservation;
@@ -141,22 +143,24 @@ WHERE created_date BETWEEN '2020-05-21' AND '2020-06-22';
 
 SELECT *
 FROM Meal 
-WHERE Meal.id  BETWEEN 3 AND 4; 
+LIMIT 5; 
 
 
 -- Get the meals that have good reviews
-SELECT * 
+SELECT Meal.*
 FROM Meal 
 INNER JOIN Review ON meal_id = Meal.id
-WHERE Review.stars >=5 ;
+WHERE Review.stars >=5
+GROUP BY Meal.id;
+
 
 -- Get reservations for a specific meal sorted by created_date
 
 SELECT *
-FROM Reservation 
-INNER JOIN Meal ON Meal.id = Reservation.meal_id 
-WHERE Reservation.id = 1
-ORDER BY Reservation.created_date;
+FROM Reservation
+WHERE meal_id  = 2
+ORDER BY created_date;
+
 
 -- Sort all meals by average number of stars in the reviews
 SELECT * 
@@ -167,11 +171,8 @@ VALUES
 ( '6', 'Shawarma', 'not good', 5, '1', '2020-05-22 : 08:05:01'),
 ('9' , 'Cheken BBQ', 'testy', 3,'2', '2020-05-22 : 08:04:11');
 
--- Error Code: 1062. Duplicate entry '7' for key 'review.PRIMARY'
-
-SELECT DISTINCT Meal.id, Meal.title ,Review.id, Review.stars AS review_stars
+SELECT Meal.*
 FROM Meal 
 INNER JOIN Review ON meal_id = Meal.id
-GROUP BY Review.id
+GROUP BY Meal.id
 ORDER BY AVG(Review.stars) DESC; 
-
