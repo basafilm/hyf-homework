@@ -1,14 +1,14 @@
 const meals = require('../data/meals.json');
 const reviews = require('../data/reviews.json');
-//const reservations = require('../data/reservations.json');
+// geting cheap meals and their reviews 
+module.exports = function cheapMealAndReviews (req, res){
 
-
-module.exports = (req, res) => {
-
-   const cheapMealReview =meals.filter( meal =>{
-      meal.reviews = reviews.filter(review => review.mealId===meal.price<= 75)
-      return meal
+   const cheapMealReviews  =meals.map( meal =>{
+      meal.reviews = reviews.filter(review => review.mealId===meal.id)
+    return meal
    });
-   
-      res.send(cheapMealReview)
+   let cheapMeal= cheapMealReviews.filter(m=> m.price<= 75)
+ 
+
+   res.send(cheapMeal)
    };

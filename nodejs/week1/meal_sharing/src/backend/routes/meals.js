@@ -1,9 +1,7 @@
 const meals = require('../data/meals.json');
 const reviews = require('../data/reviews.json');
-//const reservations = require('../data/reservations.json');
-
-
-module.exports = (req, res) => {
+// geting all meals and their reviews
+module.exports = function mealsAndReviews (req, res){
 
 const mealsReviews =meals.map( meal =>{
    meal.reviews = reviews.filter(review => review.mealId===meal.id)

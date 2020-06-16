@@ -1,11 +1,8 @@
-// const meals = require('../data/meals.json');
-// const reviews = require('../data/reviews.json');
 const resarvations = require('../data/reservations.json');
 
-
-module.exports = (req, res) => {
-     
+// geting a single reservation by random 
+module.exports = function randomSingleReservation(req, res){
       res.send(
-         resarvations[Math.floor(Math.random() * resarvations.length)]
-      )
+          resarvations[Math.floor(Math.random() * resarvations.length)]
+              )
    };

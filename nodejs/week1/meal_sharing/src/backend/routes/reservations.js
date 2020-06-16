@@ -1,13 +1,11 @@
-// const meals = require('../data/meals.json');
-// const reviews = require('../data/reviews.json');
+
 const reservations = require('../data/reservations.json');
-
-module.exports = (req, res) => {
-
-   const mealesRvations =reservations.map(reserves =>{
+// geting all reservations with their reviews
+module.exports = function getMealReservations (req, res){ 
+    const mealsReservations =reservations.map(reserves =>{
      
       return reserves
    });
    
-      res.send(mealesRvations)
+      res.send(mealsReservations)
    };

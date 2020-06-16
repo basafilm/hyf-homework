@@ -1,14 +1,11 @@
 const meals = require('../data/meals.json');
 const reviews = require('../data/reviews.json');
-//const reservations = require('../data/reservations.json');
-
-
-module.exports = (req, res) => {
+// geting a single meal by random 
+module.exports = function randomMealAndReview (reg, res) {
    const mealReview  =meals.map( meal =>{
-       let randomMeal = meals[Math.floor(Math.random() * meals.length)];
-       meal.reviews = reviews.filter(review => review.mealId === randomMeal.id)
-      return randomMeal
+       meal.reviews = reviews.filter(review => review.mealId === meal.id)
+      return meal
    });
-   
-      res.send(mealReview)
+   let randomMeal = mealReview[Math.floor(Math.random() * mealReview.length)];
+      res.send(randomMeal)
    };
