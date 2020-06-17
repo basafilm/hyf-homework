@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 3003
+const port = process.env.PORT || 3005
 //  Her i'm using Meal_sharing data to send diffirent mixed data. 
 
  const mealsRouter = require("./routes/meals");
  const cheapMealsRouter = require("./routes/cheap-meals");
  const largeMealsRouter = require("./routes/large-meals");
- const mealRouter = require("./routes/meal"); 
+ const mealRouter = require("./routes/meal.js"); 
  const reservationsRouter = require("./routes/reservations");
  const reservationRouter = require("./routes/reservation");
 
@@ -22,5 +22,4 @@ const port = 3003
     res.send('meal Sharing')
  });
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
-
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

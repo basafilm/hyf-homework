@@ -1,13 +1,6 @@
-const meals = require('../data/meals.json');
-const reviews = require('../data/reviews.json');
+const getMealsAndReviews = require('../data/meals-and-reviews.js')
 // geting large meals that serve more than 8 people
-module.exports = function largeMealsAndReviews (req, res){
-
-   const largeMealReview  =meals.map( meal =>{
-      meal.reviews = reviews.filter(review => review.mealId===meal.id)
-      return meal
-   });
-   const larg = largeMealReview.filter(l=> l.maxNumberOfGuests>= 8)
-   
-   res.send(larg)
+module.exports = (req, res) => {
+   const largeMealReview =getMealsAndReviews.filter((l)=> l.maxNumberOfGuests>= 8)
+   res.send(largeMealReview )
    };
