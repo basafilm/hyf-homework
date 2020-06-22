@@ -38,5 +38,13 @@
         "description": "A nice night out eating delicious Japanes food",
         "createdAt": "2020-06-12 15:00",
         "price": 120
+      },
+      {
+        "id": 6,
+        "title": "kabuli palow",
+        "maxNumberOfGuests": 15,
+        "description": "A nice night out eating delicious Afghanies food",
+        "createdAt": "2020-10-05 18:30",
+        "price": 110
       }
   ]

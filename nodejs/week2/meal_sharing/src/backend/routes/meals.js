@@ -3,12 +3,14 @@ const router = express.Router()
 const meals = require('../data/meals.json');
    //  Respond with the json for the meal with the corresponding id
 
+
    router.get('/meals/:id',(req, res )=> {
    let mealId = Number(req.params.id)
    let mealWithId = meals.filter(meal => mealId === meal.id)
    const mealAndId = mealWithId.map(m => m );
 
    return res.send(JSON.stringify(mealAndId))
+   
 })
 
 // Respond with the json for all the meals

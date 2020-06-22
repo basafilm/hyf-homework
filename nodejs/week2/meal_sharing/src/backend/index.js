@@ -6,13 +6,10 @@ const port = process.env.PORT || 3005
 
  const mealsRouter = require("./routes/meals");
  const reservationsRouter = require("./routes/reservations");
- const reservationRouter = require("./routes/reviews");
-
+ const reviewsRouter = require("./routes/reviews");
  app.use(mealsRouter);
  app.use(reservationsRouter);
- app.use(reservationRouter );
-
-
+ app.use(reviewsRouter );
 
  app.get("/", (req, res) => {
     res.send('meal Sharing week-2')
