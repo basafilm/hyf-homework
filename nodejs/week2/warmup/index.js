@@ -8,9 +8,9 @@ app.get('/', (req, res) => res.send('Node js week-2 howmwork'))
 
 
 app.get('/numbers/add', function (req, res) {
-const a  = Number(req.query.first)
-const b  = Number(req.query.second)
-let sum = a + b
+const firstNumber  = Number(req.query.first)
+const secondNumber  = Number(req.query.second)
+let sum = firstNumber + secondNumber
 if(sum) {
     return res.send(`Sum of numbers : ${sum} `)
 } else {
@@ -20,9 +20,9 @@ if(sum) {
 
 
 app.get('/numbers/multiply/:first/:second', function (req, res) {
-    const a  =Number(req.params.first)
-    const b  =Number(req.params.second)
-    let multipl = a * b
+    const firstNumber  =Number(req.params.first)
+    const secondNumbar  =Number(req.params.second)
+    let multipl = firstNumber * secondNumbar
 
     if(multipl) {
         return res.send(`The multiplay of numbers : ${multipl}`)
