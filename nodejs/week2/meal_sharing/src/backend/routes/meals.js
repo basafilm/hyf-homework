@@ -23,7 +23,7 @@ router.use(function(req, res, next) {
  router.get('/meals', function (req, res) {
 
    let maxPriceReq =Number(req.query.maxprice)
-   const mealTitle =parseInt(req.query.title)
+   const mealTitle = req.query.title 
    const createdAfter = (req.query.createdAfter)
    const createdDate = Date.parse(createdAfter)
    let limit = Number(req.query.limit)
@@ -36,10 +36,9 @@ router.use(function(req, res, next) {
          return meal.id <= limit;
 
       } else if (mealTitle) {
-         const useExp = mealTitle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-         const pattern = new RegExp( "(?:^|\\W)" + useExp + "(?:$|\\W)", "i");
-         return pattern.test(meal.title.includes(mealTitle));
          
+       return mealTitle === meal.title
+      
       } else if (createdDate) {
          const creatD = Date.parse(meal.createdAt)
         return creatD >= createdDate;
