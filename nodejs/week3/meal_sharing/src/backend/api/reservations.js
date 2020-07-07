@@ -3,57 +3,62 @@ const router = express.Router();
 const knex = require("../database");
 
 // Returns all reservations	
-router.get("/", async (request, response) => {
+router.get("/", async (req, res) => {
     try {
-      const reservations = await knex("reservations").select("*");
-      response.json(reservations);
-    } catch (error) {
-      throw error;
-    }
-  });
-
-// Adds a new reservations		
-  router.post("/", async (request, response) => {
-    try {
-      const newReservations = {
-        title: req.query.title,
-        description: req.query.description,
-        location: req.query.location,
-        when: req.query.when,
-        max_reservations: req.query.max_reservations,
-        price: req.query.price,
-        created_date: req.query.created_date
-      }
-      await knex('reservations').insert(newReservations)
-      response.send('Reservations posted')
+      const reservations = await knex("reservation").select("*");
+      res.json(reservations);
     } catch (error) {
       throw error;
     }
   });
 
 // Returns reservations	 by id	
-  router.get("/:id", async (request, response) => {
+router.get("/:id", async (request, response) => {
+  const { id } = request.params;
+  try {
+    const reservationsId = await knex('reservation').select('*').where({id});
+    const getReservation = reservationsId.map(reserve = reserve.id)
+      if (getReservation.length === 0) {
+        response.send(`Reservation with the Id: ${id} not exist!`);
+      } else {
+        response.json(reservationsId);
+      }
+
+ } catch (error) {
+    throw error;
+  }
+});
+
+// Adds a new reservations		
+  router.post("/", async (req, res) => {
     try {
-      const reservationsId = await knex('reservations').select('*').where(
-        {'id' : request.params.id}
-      );
-      response.json(reservationsId);
+      const newReservations = {
+        number_of_guests: req.body.number_of_guests,
+        mealId: req.body.mealId,
+        created_date: req.body.created_date,
+        name: req.body.name,
+        phoneNum : req.body.phoneNum,
+        emailAdd : req.body.emailAdd
+
+      }
+      await knex('reservation').insert(newReservations)
+      res.send('Reservations posted')
     } catch (error) {
       throw error;
     }
   });
 
 // Updates reservations	 by id	
-  router.put("/:id", async (request, response) => {
+  router.put("/:id", async (req, res) => {
+    const {id} = req.params;
     try {
-      const updatReservations = await knex('reservations').where(
-        {'id' : request.params.id}).update(
-          {
-            number_of_guests: req.query.number_of_guests,
-            meal_id: req.query.meal_id,
-            created_date: req.query.created_date
+      const updatReservations = await knex('reservation').where({id})
+      .update({
+            number_of_guests: req.body.number_of_guests,
+            mealId: req.body.mealId,
+            created_date: req.body.created_date
           })
-      response.json(updatReservations);
+      res.json(`${updatReservations} reservation with ${id} Updated!`);
     } catch (error) {
       throw error;
     }
@@ -61,15 +66,19 @@ router.get("/", async (request, response) => {
 
 // // Deletes reservations by id
   router.delete("/:id", async (request, response) => {
+    const { id } =request.params;
     try {
-      const deleteReservations = await knex('reservations').where(
-        {'id' : request.params.id}).delete()
-        response.json(deleteReservations);
+      const reservation = await knex('reservation').where({id})
+      const deleteReservations = await knex('reservation').where({id}).delete()
+      const getReservation = reservation.map(reserve = reserve.id)
+          if (getReservation.length === 0) {
+            response.send(`Reservation with the Id: ${id} not exist!`);
+          } else {
+            response.json(deleteReservations);
+          }
     } catch (error) {
       throw error;
     }
   });
-
-
 
 module.exports = router;
