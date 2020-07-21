@@ -1,17 +1,16 @@
-const cool = require('cool-ascii-faces');
 const express = require("express");
 const app = express();
 const router = express.Router();
 const path = require("path");
 
-const mealsRouter = require("./src/backend/api/meals");
-const reservationsRouter = require("./src/backend/api/reservations");
-const reviewsRouter = require("./src/backend/api/reviews");
-const mealsRev = require("./src/backend/api/available_reserve");
+const mealsRouter = require("./api/meals");
+const reservationsRouter = require("./api/reservations");
+const reviewsRouter = require("./api/reviews");
+const mealsRev = require("./api/available_reserve");
 const port = process.env.PORT || 5000;
 // For week4 no need to look into this!
 // Serve the built client html
-const buildPath = path.join(__dirname, "./src/frontend");
+const buildPath = path.join(__dirname, "./../frontend");
 app.use(express.static(buildPath));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -28,7 +27,7 @@ app.use("/api", router);
 
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./src/frontend/index.html"), function (
+  res.sendFile(path.join(__dirname, "./../frontend/index.html"), function (
     err
   ) {
     if (err) {
