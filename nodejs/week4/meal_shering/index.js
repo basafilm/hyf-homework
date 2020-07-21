@@ -1,4 +1,4 @@
-PORT = process.env.PORT || 3003
+const cool = require('cool-ascii-faces');
 const express = require("express");
 const app = express();
 const router = express.Router();
@@ -8,7 +8,7 @@ const mealsRouter = require("./src/backend/api/meals");
 const reservationsRouter = require("./src/backend/api/reservations");
 const reviewsRouter = require("./src/backend/api/reviews");
 const mealsRev = require("./src/backend/api/available_reserve");
-const port = process.env.PORT || 3003;
+const port = process.env.PORT || 5000;
 // For week4 no need to look into this!
 // Serve the built client html
 const buildPath = path.join(__dirname, "./src/frontend");
