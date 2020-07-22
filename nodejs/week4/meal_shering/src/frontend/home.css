@@ -24,9 +24,11 @@
     max-width: 100%;
     margin-top: -12%;
     margin-bottom: -18%;
+    display: -webkit-flex;
     position: relative;
     z-index: 1;
     clip-path: inset(20% 0% 30%  0%);
+    -webkit-clip-path:inset(20% 0% 30%  0%)
   }
   .searchBar {
     align-self: center;
@@ -106,6 +108,10 @@
           width: 100%;
           float: right;
         }
+        .divAbout {
+          padding-top: 2%;
+          width: 100%;
+        }
         .mealSharingForm  {
           width: 100%;
         }
@@ -118,4 +124,5 @@
         .mealSharingForm label, button {
           font-size: 2vw;
         }
+ 
     }

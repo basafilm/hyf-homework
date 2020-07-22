@@ -38,13 +38,13 @@ const formSection = document.querySelector('.formSection')
                     <label for="location">Location:</label>
                     <input type="text" id="location" name="location" required>
                     <label for="when"> When:</label>
-                    <input type="text" id="when" name="when" required>
+                    <input type="text" id="when" name="when" placeholder ="2020-05-22 00:00:00"required>
                     <label for="max_reservations"> max_reservations:</label>
                     <input type="text" id="max_reservations" name="max_reservations" required>
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price" required>
                     <label for="created_date">Created Date:</label>
-                    <input type="text" id="created_date" name="created_date" required>
+                    <input type="text" id="created_date" name="created_date" placeholder ="2020-05-22 00:00:00" required>
                     
                       <button type ="submit" value= "Submit">Submit</button>
                   <h3>Organics : </h3>
@@ -56,9 +56,10 @@ const formSection = document.querySelector('.formSection')
         h3Sabout.innerText= "About This Page:"
         divAbout.appendChild(h3Sabout)
         const myImage = new Image()
-        myImage.src="../img/malek.jpg"
+        myImage.src="../img/Malek.png"
         myImage.setAttribute('class', "myImage")
         divAbout.appendChild(myImage)
+
         const aboutP = document.createElement("p")
         aboutP.innerText = "Once upon a time a filmmaker forced to leave his country. He toke his  backpake and went from one country to another one. Finally he found himself in beautifull city of Copenhagen where he soposide to find job as a filmmaker, but didn't ! He wrote tens of appplications and send them to whereever address he found but he didn't recivied any responce! It was the main reason that he decided to become a web developer. He found his way to Hack Your Future-Copenhagen and right now he is in the proccess of hacking his future! This meal sharing website is a kind of home work having magical affect for tasting nations' dishes! Watch pictures for about ten secounds , read the discriptions and try to feel the tasts! "
         divAbout.appendChild(aboutP)
