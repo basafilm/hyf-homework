@@ -38,13 +38,13 @@ const formSection = document.querySelector('.formSection')
                     <label for="location">Location:</label>
                     <input type="text" id="location" name="location" required>
                     <label for="when"> When:</label>
-                    <input type="text" id="when" name="when" placeholder ="2020-05-22 00:00:00"required>
+                    <input type="text" id="when" name="when" placeholder ="e.g. 2020-mm-dd hh:mm:ss"required>
                     <label for="max_reservations"> max_reservations:</label>
                     <input type="text" id="max_reservations" name="max_reservations" required>
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price" required>
                     <label for="created_date">Created Date:</label>
-                    <input type="text" id="created_date" name="created_date" placeholder ="2020-05-22 00:00:00" required>
+                    <input type="text" id="created_date" name="created_date" placeholder ="e.g. 2020-mm-dd hh:mm:ss" required>
                     
                       <button type ="submit" value= "Submit">Submit</button>
                   <h3>Organics : </h3>
