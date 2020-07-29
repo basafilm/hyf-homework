@@ -53,7 +53,7 @@ footer {
   background-color:#603FC4;
   width: 100%;
   height: auto;
-  margin: auto;
+  margin: 20px;
   padding: auto;
   display: flex;
   justify-content: space-around;
@@ -126,7 +126,7 @@ a:active {
   color: blue;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 750px) {
+@media only screen and (max-width: 600px) {
   body {
      font-size: 1vw; 
      margin: auto;
@@ -139,6 +139,16 @@ a:active {
       display: flex;
       position: absolute;
       margin-top: -15%; 
+    }
+
+    .headerNav {
+      width: 20%;
+      float: right;
+     margin-right: 10px;
+    }
+    
+     a {
+      font-size: 2vw; 
     }
   footer, header {
         padding: auto;

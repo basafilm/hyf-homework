@@ -1,11 +1,12 @@
 window.handleMealRequest =  async (params) => {
   // back button
   const headerNav = document.querySelector('.headerNav')
-  const headerH3Tag = document.createElement('h3')
-        headerH3Tag.setAttribute('id' , "homeHref")
-        headerNav.appendChild(headerH3Tag)
+  const aTag = document.createElement('a')
+        aTag.setAttribute('class' , "homeHref")
+        headerNav.appendChild(aTag)
   const meals = `/meals`
-        headerH3Tag.innerHTML = `<a href= ${meals}> Meals Option </a>`;
+        aTag.href = meals
+        aTag.innerHTML = "Meals Option";
 
   const firstSection = document.querySelector('.firstSection')
   const div1 = document.createElement('div')
@@ -19,27 +20,27 @@ window.handleMealRequest =  async (params) => {
         div1.appendChild(h3Tage)
         div1.appendChild(ulTage)
 
-
-// geting meal with Id
 const getParams =   `/api/meals/${params.id}`;
 const mealResponse = await fetch(getParams)
 const meal = await mealResponse.json()
 
 const ulTag = document.querySelector('ul');
- meal.forEach(meal => {
+meal.forEach(meal => {
   const d = new Date(meal.when)
   const date =d.getFullYear()
-  const houer = d.getHours()
-  const minute = d.getMinutes()
-  const seconds = d.getSeconds()
-  
+  const houer = d.toLocaleTimeString()
+
+ // remaining of avilble seats
+ const remainSeats= meal.max_reservations- meal.totalOfGuests
+
+
         ulTag.innerHTML = `<li> <strong>Title:</strong> ${ meal.title} </li> 
         <li> <strong>Description:</strong> ${meal.description}</li> 
         <li> <strong>Max-reservation:</strong> ${meal.max_reservations}</li> 
         <li><strong>Price:</strong> ${meal.price}.Kr </li>
         <li><strong>Location:</strong> ${meal.location}</li>
         <li><strong>Date:</strong> ${date}/${d.getMonth()}/${d.getDay()} </li>
-        <li><strong>When:</strong> ${houer}: ${minute}: ${seconds} </li>`
+        <li><strong>When:</strong> ${houer} </li>`
 
         const formSection =document.querySelector('.formSection')
         const reservReviewDiv = document.createElement('div')
@@ -62,8 +63,8 @@ const ulTag = document.querySelector('ul');
               <input type="email" id="emailAdd" name="emailAdd" placeholder="enter your email" required>
               <input type ="hidden" name= "meal_Id" value= ${meal.id}>
 
-              <label for="number_of_guests">Number of guests:</label>
-              <input type="number" id="number_of_guests" name="number_of_guests" min="1"max="100" required>
+              <label for="number_of_guests">Number of guests (only ${remainSeats} seat available): </label>
+              <input type="number" id="number_of_guests" name="number_of_guests" min="1"max=${remainSeats} required>
 
               <button type ="submit" value= "Submit" onclick="ValidateEmail();">Submit</button>
               </form>`)
@@ -73,7 +74,7 @@ const ulTag = document.querySelector('ul');
               <form class="reviewForm" action="../../api/reviews" method ="post">
               <h4> Want to give a feedback ?:</h4>
               <label for="description">Wrie a short review:</label>
-              <input type="text" id="description" name="description" maxlength = "40">
+              <input type="text" id="description" name="description" maxlength = "40" required>
             </select>
               <label for="stars"> Give some stars<span style="color: rgb(255,223,0);"> &#11089;</span>:</label>
               <select id="stars" name="stars">

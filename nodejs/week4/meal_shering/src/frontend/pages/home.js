@@ -1,11 +1,12 @@
 window.handleHomeRequest = async ( req, res) => {
 const body = document.querySelector('body')
 const headerNav = document.querySelector('.headerNav')
-      const h3Tag = document.createElement('h3')
-            h3Tag.setAttribute('id' , "homeHref")
-            headerNav.appendChild(h3Tag)
+      const aTag = document.createElement('a')
+            aTag.setAttribute('class' , "homeHref")
+            headerNav.appendChild(aTag)
       const meals = `/meals`
-            h3Tag.innerHTML = `<a href= ${meals}> Meals Option </a>`;
+            aTag.href = meals 
+            aTag.innerText ="menu"
 
 const mealsSection = document.getElementsByClassName("firstSection")[0]
       const imagediv = document.createElement("div")
@@ -19,7 +20,7 @@ const mealsSection = document.getElementsByClassName("firstSection")[0]
                     img.setAttribute('class', "homeImages")
                     imagediv.appendChild(img)
 
-
+const courentDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 const formSection = document.querySelector('.formSection')
             const divAbout = document.createElement("div")
             divAbout.setAttribute('class' ,"divAbout")
@@ -29,22 +30,21 @@ const formSection = document.querySelector('.formSection')
                       <div class="mealSharingForm">
                       <h3>Share A New Meal : </h3>
                     <form action="../../api/meals" method ="post">
+
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required><br>
-                    
                     <label for="description">Description:</label>
                     <input type="text" id="description" name="description" required>
-                    
                     <label for="location">Location:</label>
                     <input type="text" id="location" name="location" required>
-                    <label for="when"> When:</label>
-                    <input type="text" id="when" name="when" placeholder ="e.g. 2020-mm-dd hh:mm:ss"required>
+                    <label for="when"> When:(future date)</label>
+                    <input type="datetime" id="when" name="when" placeholder ="e.g. ${courentDate}"  min="${courentDate}" required>
                     <label for="max_reservations"> max_reservations:</label>
                     <input type="text" id="max_reservations" name="max_reservations" required>
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price" required>
                     <label for="created_date">Created Date:</label>
-                    <input type="text" id="created_date" name="created_date" placeholder ="e.g. 2020-mm-dd hh:mm:ss" required>
+                    <input type="datetime" id="created_date" name="created_date" value="${courentDate}" required>
                     
                       <button type ="submit" value= "Submit">Submit</button>
                   <h3>Organics : </h3>
@@ -56,12 +56,12 @@ const formSection = document.querySelector('.formSection')
         h3Sabout.innerText= "About This Page:"
         divAbout.appendChild(h3Sabout)
         const myImage = new Image()
-        myImage.src="../img/Malek.png"
+        myImage.src="../img/6.jpg"
         myImage.setAttribute('class', "myImage")
         divAbout.appendChild(myImage)
 
         const aboutP = document.createElement("p")
-        aboutP.innerText = "Once upon a time a filmmaker forced to leave his country. He takes his backpack and went from one country to another one. Finally, he found himself in beautiful city of Copenhagen where he supposed to find job as a filmmaker but didn’t! He wrote tens of applications and send them to wherever address he found but he didn't receive any response! It was the main reason that he decided to become a web developer. He found his way to Hack Your Future-Copenhagen and right now he is in the process of hacking his future! This meal sharing website is a kind of homework having magical affect for tasting nations' dishes! Watch pictures for about ten seconds, read the descriptions and try to feel the tastes!"
+        aboutP.innerText = "This is a simple web page made for hyf-Copenhagen NodeJS week 4 homework. But you can use this website and share your meal by filling out the Meal Sharing form. People can find your meal among others in the menus and they will be able to reserve a seat. The registration form limited by maximum space for reservation. please put a correct future date otherwise your meal will not be added to the menu. Your meal will be deleted when its due date expired."
         divAbout.appendChild(aboutP)
 
 // search function for meals
@@ -91,8 +91,3 @@ const formSection = document.querySelector('.formSection')
                                     ulSearchTage.innerHTML = eachItem   
                         };    
 };
-
-
-//  // if any links are added to the dom, use this function
-//   // make the router handle those links.
-// router.updatePageLinks();

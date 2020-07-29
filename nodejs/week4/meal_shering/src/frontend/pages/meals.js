@@ -1,10 +1,11 @@
 window.handleMealsRequest = async () => {
   const headerNav = document.querySelector('.headerNav')
-      const h3Tag = document.createElement('h3')
-            h3Tag.setAttribute('id' , "homeHref")
-            headerNav.appendChild(h3Tag)
+      const aTag = document.createElement('a')
+            aTag.setAttribute('class' , "homeHref")
+            headerNav.appendChild(aTag)
       const home = `/`
-            h3Tag.innerHTML = `<a href= ${home}> << Back </a>`;
+            aTag.href = home;
+            aTag.innerHTML = " << Back ";
 
 
   const section = document.querySelector('.firstSection')
@@ -19,58 +20,45 @@ window.handleMealsRequest = async () => {
   const reservetTotal =[]
   reservetTotal.push(availbeRes)
 
+  const generalDiv = document.createElement('dive')
+  generalDiv.setAttribute("class", 'mealGeneralDive')
+section.appendChild(generalDiv)
+
   const renderMeals = reservetTotal.map(meal => {
 
     const secondLayer = meal.forEach(meal => {
 
       // text info
+      const dive1 = document.createElement('dive')
+      dive1.setAttribute("class", 'childDive')
+      generalDiv.appendChild(dive1)
+const dive2 = document.createElement('dive')
+      dive2.setAttribute("class", 'childDive ')
+      generalDiv.appendChild(dive2)
+const dive3 = document.createElement('dive')
+      dive3.setAttribute("class", 'childDive')
+      generalDiv.appendChild(dive3)
+ const dive4 = document.createElement('dive')
+       dive4.setAttribute("class", 'btnDive')
+      generalDiv.appendChild(dive4)
+const dive5 = document.createElement('dive')
+      dive5.setAttribute("class", 'btnDive')
+      generalDiv.appendChild(dive5)
+const dive6 = document.createElement('dive')
+      dive6.setAttribute("class", 'btnDive')
+      generalDiv.appendChild(dive6)
 
-      const table = document.createElement('table')
-      const trFirst = document.createElement('tr')
-            table.appendChild(trFirst)
-      const th1 = document.createElement('th')
-            th1.setAttribute('class', "tabletext")
-      const th2 = document.createElement('th')
-            th2.setAttribute('class', "tableImage")
-      const th3 = document.createElement('th')
-            th3.setAttribute('class', "tableReviw")
-            trFirst.appendChild(th1)
-            trFirst.appendChild(th2)
-            trFirst.appendChild(th3)
-      
-      const trSecond = document.createElement('tr')
-            table.appendChild(trSecond)
-      const td1 = document.createElement('td')
-      const td2 = document.createElement('td')
-      const td3 = document.createElement('td')
-            td1.setAttribute('class', "tabletext")
-            td2.setAttribute('class', "tableImage")
-            td3.setAttribute('class', "tableReviw")
-            trSecond.appendChild(td1)
-            trSecond.appendChild(td2)
-            trSecond.appendChild(td3)
-                
-      const trTirth = document.createElement('tr')
-            table.appendChild(trTirth)
-      const td4 = document.createElement('td')
-      const td5 = document.createElement('td')
-      const td6 = document.createElement('td')
-            trTirth.appendChild(td4)
-            trTirth.appendChild(td5)
-            trTirth.appendChild(td6)
-
-            // meals text section
+ // meals text section
         const ulTag = document.createElement('ul');
-        section.appendChild(table)
-        td1.appendChild(ulTag)
+        dive1.appendChild(ulTag)
 
         // reviews text section
         const revH4Tag = document.createElement('h4');
         revH4Tag.innerHTML = "Reviews:"
-        td3.appendChild(revH4Tag)
+        dive3.appendChild(revH4Tag)
 
         const revUlTag = document.createElement('ul');
-        td3.appendChild(revUlTag)
+        dive3.appendChild(revUlTag)
 
 
             // image 
@@ -78,14 +66,12 @@ window.handleMealsRequest = async () => {
             const imageRandoom = images[Math.floor(Math.random() * (images.length))];
                     const img = new Image()
                     img.src= imageRandoom
-                    td2.appendChild(img)
+                    dive2.appendChild(img)
 
         // date by details
           const d = new Date(meal.when)
-          const date =d.getFullYear()
-          const houer = d.getHours()
-          const minute = d.getMinutes()
-          const seconds = d.getSeconds()
+          const date =d.toLocaleString('default', { year: 'numeric', month: 'long', day: 'numeric'})
+          const houer = d.toLocaleTimeString()
 
             //console.log(day)
             ulTag.innerHTML = `<li> <strong>Title:</strong> ${ meal.title} </li> 
@@ -93,8 +79,8 @@ window.handleMealsRequest = async () => {
             <li> <strong>Max-reservation:</strong> ${meal.max_reservations}</li> 
             <li><strong>Price:</strong> ${meal.price}.Kr </li>
             <li><strong>Location:</strong> ${meal.location}</li>
-            <li><strong>Date:</strong> ${date}/${d.getMonth()}/${d.getDay()} </li>
-            <li><strong>When:</strong> ${houer}: ${minute}: ${seconds} </li> `
+            <li><strong>Date:</strong> ${date} </li>
+            <li><strong>When:</strong> ${houer} </li> `
 
             // review text Part
             // stars converter 
@@ -114,12 +100,14 @@ window.handleMealsRequest = async () => {
                   <li> <strong>Description:</strong> No reviews</li>`
             } else {
                   revUlTag.innerHTML = `
-                  <li class=" "><span style="color: rgb(255,223,0);">${output.slice(0, 5).join('')}</strong></li>
-                  <pre><li>${meal.revDescrip.split(",").join('\n')}</li></<pre>`
+                  <li class=" "><span style="color: rgb(255,223,0);">${output.slice(0, 5).join('')}</strong></li>`
+                  const pre = document.createElement('pre')
+                  pre.insertAdjacentHTML("afterbegin" ,`<li>${meal.revDescrip.split(",").join('\n')}</li>`)
+                  dive3.appendChild(pre)
             }
                               // review Section
                               const reviewsBtn = document.createElement("button")
-                              td6.appendChild(reviewsBtn)
+                              dive6.appendChild(reviewsBtn)
                               const revATag = document.createElement('a') 
                               const mealPage = `/meal/`
                               revATag.href = mealPage.concat(meal.id);
@@ -131,7 +119,7 @@ window.handleMealsRequest = async () => {
 
                   // book seat button
                   const bookBtn = document.createElement("button")
-                  td4.appendChild(bookBtn)
+                  dive4.appendChild(bookBtn)
                   const aTag = document.createElement('a') 
                   const mealPage = `/meal/`
                   aTag.href = mealPage.concat(meal.id);
@@ -141,16 +129,16 @@ window.handleMealsRequest = async () => {
                 // button for remain
                       const remained = meal.max_reservations - meal.totalOfGuests
                       const remainBtn = document.createElement("button")
-                      td5.appendChild(remainBtn)
-                      const remainATag = document.createElement('a') 
+                      dive5.appendChild(remainBtn)
+                      const remainH5Tag = document.createElement('h5') 
 
-                      remainATag.innerText=`${remained} Seat availble`
-                      remainBtn.appendChild(remainATag) 
+                      remainH5Tag.innerText=`${remained} Seat availble`
+                      remainBtn.appendChild(remainH5Tag) 
 
                     } else {
                       //const table = document.querySelector('section > table')
                       const btn = document.createElement("button")
-                      td4.appendChild(btn)
+                      dive4.appendChild(btn)
                       const aTag = document.createElement('a') 
                       aTag.innerText = "Fully booked!"
                       btn.appendChild(aTag)
