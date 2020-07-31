@@ -4,7 +4,7 @@ DEFAULT COLLATE=utf8mb4_unicode_ci;
 
 USE meal_sharing;
 
-CREATE Table Meal (
+CREATE Table meals (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
  `title`varchar(255),
  `description` text,
@@ -17,7 +17,7 @@ CREATE Table Meal (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-CREATE Table Reservation (
+CREATE Table reservations (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
  `number_of_guests` int(10) unsigned NOT NULL,
  `meal_id` int(10) unsigned NOT NULL,
@@ -30,7 +30,7 @@ CREATE Table Reservation (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-CREATE Table Review (
+CREATE Table reviews (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
  `title` varchar(500) NOT NULL,
  `description` text,
