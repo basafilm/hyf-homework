@@ -76,15 +76,19 @@ class App extends Component {
 
 
   edit(id , e ){   
-    const todosIndex= this.state.todos.findIndex(todo => todo.id ===id)
-    const todo = Object.assign({},this.state.todos[todosIndex]);
-    todo.description =this.state.description;
-    todo.deadline =this.state.deadline;
-    const todos = Object.assign([], this.state.todos);
-    todos[todosIndex] = todo;
-    this.setState({
-      todos: todos
-    })
+ this.setState(prevState => {
+            const newList = prevState.todos.map(todo => {
+                if (id === todo.id) {
+                    return {
+                        ...todo,
+                        description: prevState.description,
+                        deadline: prevState.deadline,
+                    };
+                }
+                return todo;
+            });
+            return { todos: newList };
+        });
     e.preventDefault();
     }
 
