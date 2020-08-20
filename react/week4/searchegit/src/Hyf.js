@@ -30,7 +30,7 @@ import React, { useState, useEffect} from "react";
                 { repos.map(repo =>{
                 return(
                   <li key={repo.id} >
-                  <a style={{textDecoration: 'none'}} href={repo.url}>{repo.name}</a>
+                  <a style={{textDecoration: 'none'}} href={repo.html_url}>{repo.name}</a>
                   </li>
                 ) 
                 })}

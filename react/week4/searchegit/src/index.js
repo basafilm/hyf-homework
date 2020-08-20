@@ -8,6 +8,7 @@ import Hyf from './Hyf'
 
 ReactDOM.render(
   <React.StrictMode>
+     <h1>Github User Searcher: </h1>
     <div className={'mainSection'}>
     <App  />
     <Hyf  />

@@ -37,7 +37,7 @@ function SearcheGit() {
         {data.map(item =>{
            return (
             <li key={item.id} >
-            <a style={{textDecoration: 'none'}} href={item.url}>{item.login}</a>
+            <a style={{textDecoration: 'none'}} href={item.html_url}>{item.login}</a>
             </li>
            )}
         )}
