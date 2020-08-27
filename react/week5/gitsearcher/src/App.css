@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+
+.navBar {
+  background-color: #282c34;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content:stretch;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.navBar ul , li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.mainSection {
+  width: 70%;
+  min-height: 100vh;
+  margin: auto;
+  padding-top: 5%;
+
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 3em;
+  justify-content: space-evenly;
+}
+span {
+  font-weight: bold;
+}
