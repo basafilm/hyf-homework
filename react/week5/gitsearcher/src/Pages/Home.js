@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import SearcheInput from './SearcheInput';
 import GitUsers from './GitUsers';
 import HyfCph from './HyfCph'
-import './App.css';
+import '../Css/App.css';
 
 export default function Home () {
     const [users, setUsers] = useState("");

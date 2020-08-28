@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter , Switch, Route , Link} from "react-router-dom";
 
-import './App.css';
-import GitUser from './GitUser';
-import Home from './Home';
+import './Css/App.css';
+import GitUser from './Pages/GitUser';
+import Home from './Pages/Home';
+import About from './Pages/About';
 
 
 export default function App() {
@@ -22,12 +23,16 @@ function notFund () {
                      <li>
                         <Link to='/'> Home </Link>
                      </li>
+                     <li>
+                        <Link to='/About'> About </Link>
+                     </li>
                </ul>
             
         </nav>
         <div className={'mainSection'}>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route  path="/About" component={About} />
               <Route path='/:id' component={GitUser} />
               <Route path='*' exact={true} component={notFund} />
             </Switch>
