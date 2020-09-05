@@ -1,8 +1,14 @@
 1- broccoli
 2- corn
+<<<<<<< HEAD
 3- red pepper
 4- lettuce
 5- pumpkin
 6- tomato
 7- beetroot.
 8- brussel sprouts
+=======
+3- radish
+4- lettuce
+5- pumpkin
+>>>>>>> master
